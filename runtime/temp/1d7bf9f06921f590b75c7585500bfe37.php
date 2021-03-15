@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:93:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personal\enpty.html";i:1615534475;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,18 +49,18 @@
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
 
-                                      {in name="录入" value="$viewMenu"}
+                                      <?php if(in_array((录入), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("saveenpty")}'><i class="layui-icon">&#xe608;</i> 录入</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("saveenpty"); ?>'><i class="layui-icon">&#xe608;</i> 录入</a>
                                       </div>
-                                      {/in}
+                                      <?php endif; ?>
                                     </div>
-                                    <form action="" method="get">
+                                    <form action="<?php echo url('ulist'); ?>" method="get">
                                         <div class="columns columns-right btn-group pull-right">
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
                                         <div class="pull-right search">
-                                          <input class="form-control input-outline" type="text" name="username" value="{if $username}{$username}{/if}" placeholder="用户名">
+                                          <input class="form-control input-outline" type="text" name="username" value="<?php if($username): ?><?php echo $username; endif; ?>" placeholder="用户名">
                                         </div>
                                     </form>
                                   </div>
@@ -84,34 +85,33 @@
                                             </tr>
                                       </thead>
                                       <tbody>
-                                          {volist name="info" id="v"}
-                                              <tr class="gradeA odd" id="d{$v.id}">
-                                                  <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.username}</td>
-                                                  <td class=" ">{$v.nickname}</td>
-                                                  <td class=" ">{$v.email}</td>
-                                                  <td class=" ">{$v.sex}</td>
-                                                  <td class=" ">{$v.birth}</td>
-                                                  <td class=" ">{$v.address}</td>
-                                                  <td class=" ">{:showRole($v.role_id)}</td>
-                                                  <td class=" ">{:showOpen($v.open)}</td>
-                                                  <td class=" ">{$v.create_time}</td>
-                                                  <td class=" ">{$v.ip}</td>
-                                                  <td class=" ">{$v.login_num}</td>
-                                                  <td class=" ">{$v.login_time}</td>
+                                          <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
+                                                  <td class="sorting_1"><?php echo $v['id']; ?></td>
+                                                  <td class=" "><?php echo $v['username']; ?></td>
+                                                  <td class=" "><?php echo $v['nickname']; ?></td>
+                                                  <td class=" "><?php echo $v['email']; ?></td>
+                                                  <td class=" "><?php echo $v['sex']; ?></td>
+                                                  <td class=" "><?php echo $v['birth']; ?></td>
+                                                  <td class=" "><?php echo $v['address']; ?></td>
+                                                  <td class=" "><?php echo showRole($v['role_id']); ?></td>
+                                                  <td class=" "><?php echo showOpen($v['open']); ?></td>
+                                                  <td class=" "><?php echo $v['create_time']; ?></td>
+                                                  <td class=" "><?php echo $v['ip']; ?></td>
+                                                  <td class=" "><?php echo $v['login_num']; ?></td>
+                                                  <td class=" "><?php echo $v['login_time']; ?></td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="用户修改" value="$viewMenu"}
-                                                              <a type="button" class="layui-btn" href="{:url('publicsaveuser')}?id={$v.id}&username={$v.username}&nickname={$v.nickname}&email={$v.email}&sex={$v.sex}&birth={$v.birth}&address={$v.address}&role_id={$v.role_id}&open={$v.open}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          {/in}
-                                                          {in name="用户删除" value="$viewMenu"}
-                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          {/in}
+                                                          <?php if(in_array((用户修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <a type="button" class="layui-btn" href="<?php echo url('publicsaveuser'); ?>?id=<?php echo $v['id']; ?>&username=<?php echo $v['username']; ?>&nickname=<?php echo $v['nickname']; ?>&email=<?php echo $v['email']; ?>&sex=<?php echo $v['sex']; ?>&birth=<?php echo $v['birth']; ?>&address=<?php echo $v['address']; ?>&role_id=<?php echo $v['role_id']; ?>&open=<?php echo $v['open']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((用户删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                          <?php endif; ?>
                                                       </div>
                                                   </td>
                                               </tr>
-                                        {/volist}
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                       </tbody>
                                  </table>
                                  <div class="row">
@@ -149,7 +149,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delUser")}',
+                    url:'<?php echo url("delUser"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',

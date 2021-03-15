@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>中心考核类型</title>
+    <title>员工信息</title>
     <link href="__HOME__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="__HOME__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="__HOME__/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
@@ -48,9 +48,9 @@
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
 
-                                      {in name="录入" value="$viewMenu"}
+                                      {in name="员工信息添加" value="$viewMenu"}
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("saveenpty")}'><i class="layui-icon">&#xe608;</i> 录入</a>
+                                          <a class="layui-btn" id="add" href='{:url("personnelsave")}'><i class="layui-icon">&#xe608;</i> 录入</a>
                                       </div>
                                       {/in}
                                     </div>
@@ -59,7 +59,7 @@
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
                                         <div class="pull-right search">
-                                          <input class="form-control input-outline" type="text" name="username" value="{if $username}{$username}{/if}" placeholder="用户名">
+                                          <input class="form-control input-outline" type="text" name="name" value="{if $name}{$name}{/if}" placeholder="用户名">
                                         </div>
                                     </form>
                                   </div>
@@ -102,10 +102,10 @@
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="用户修改" value="$viewMenu"}
-                                                              <a type="button" class="layui-btn" href="{:url('publicsaveuser')}?id={$v.id}&username={$v.username}&nickname={$v.nickname}&email={$v.email}&sex={$v.sex}&birth={$v.birth}&address={$v.address}&role_id={$v.role_id}&open={$v.open}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          {in name="员工信息修改" value="$viewMenu"}
+                                                              <a type="button" class="layui-btn" href="{:url('personnelsave')}?id={$v.id}&username={$v.username}&nickname={$v.nickname}&email={$v.email}&sex={$v.sex}&birth={$v.birth}&address={$v.address}&role_id={$v.role_id}&open={$v.open}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
                                                           {/in}
-                                                          {in name="用户删除" value="$viewMenu"}
+                                                          {in name="员工信息删除" value="$viewMenu"}
                                                               <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
                                                           {/in}
                                                       </div>
@@ -149,7 +149,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delUser")}',
+                    url:'{:url("delPersonnel")}',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',
