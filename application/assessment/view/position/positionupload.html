@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>上传组件</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all">
+</head>
+<body>
+
+  <style>
+  .layui-upload-img{width: 92px; height: 92px; margin: 0 10px 10px 0;}
+  </style>
+
+  <div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+
+    </div>
+  </div>
+
+  <div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+
+      <form artion="{:url('positionUpload')}" enctype="multipart/form-data" method="post" data-type="ajax">
+          <div class="layui-col-md12">
+            <div class="layui-card">
+              <div class="layui-card-header">上传文件</div>
+              <div class="layui-card-body">
+                <input type="file" name="file" id="test-upload-primary">
+              </div>
+              <div class="layui-card-header">
+                <button class="layui-btn" type="submit" lay-submit="" lay-filter="component-form-element">立即提交</button>
+                <a  class="layui-btn layui-btn-normal layui-btn-radius" onclick="javascript:history.go(-1);">返回</a>
+              </div>
+            </div>
+          </div>
+      </form>
+
+
+    </div>
+  </div>
+
+  <script src="__LAYUI__/layui.js" charset="utf-8"></script>
+
+</body>
+</html>

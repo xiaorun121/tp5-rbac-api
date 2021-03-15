@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>员工考核</title>
+    <link href="__HOME__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="__HOME__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="__HOME__/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="__HOME__/css/animate.min.css" rel="stylesheet">
+    <link href="__HOME__/css/layer.css" rel="stylesheet">
+    <link href="__HOME__/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="__HOME__/css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <script src="__PUBLIC__/laydate/laydate.js" charset="utf-8"></script>
+
+<style>
+  html{background-color:#E3E3E3; font-size:14px; color:#000; font-family:Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif}
+  a,a:hover{ text-decoration:none;}
+  pre{font-family:Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif}
+  .box{padding:20px; background-color:#fff; margin:50px 100px; border-radius:5px;}
+  .box a{padding-right:15px;}
+  #about_hide{display:none}
+  .layer_text{background-color:#fff; padding:20px;}
+  .layer_text p{margin-bottom: 10px; text-indent: 2em; line-height: 23px;}
+  .button{display:inline-block; *display:inline; *zoom:1; line-height:30px; padding:0 20px; background-color:#56B4DC; color:#fff; font-size:14px; border-radius:3px; cursor:pointer; font-weight:normal;}
+  .photos-demo img{width:200px;}
+  thead tr th{text-align: center;}
+  ul.notes li div{background: #16b7af;color: #fff;}
+  </style>
+
+</head>
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInUp" style="font-size: 13px;">
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="row row-lg">
+            <div class="col-sm-12">
+            <!-- Example Events -->
+                <div class="example-wrap">
+                    <div class="example">
+
+                        <div class="bootstrap-table">
+                            <div class="fixed-table-toolbar">
+                                <form action="" method="get">
+                                    <div class="columns columns-right btn-group pull-right">
+                                        <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
+                                    </div>
+                                    <div class="pull-right search">
+                                        <input class="form-control input-outline" type="text" id="test2" name="pdate" placeholder="日期">
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <!-- End Example Events -->
+            </div>
+
+            <div class="col-sm-12">
+            <!-- Example Events -->
+                <div class="example-wrap">
+                    <div class="example">
+
+                        <div class="bootstrap-table">
+
+                            <div class="wrapper wrapper-content animated fadeInUp">
+                                <ul class="notes">
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年1月</small>
+                                            <h4>HTML5 文档类型</h4>
+                                            <p>Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。在你项目中的每个页面都要参照下面的格式进行设置。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','1')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年2月</small>
+                                            <h4>移动设备优先</h4>
+                                            <p>在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增……</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','2')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年3月</small>
+                                            <h4>排版与链接</h4>
+                                            <p>Bootstrap 排版、链接样式设置了基本的全局样式。分别是： 为 body 元素设置 background-color: #fff; 使用 @font-family-base、@font-size-base 和……。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','3')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年4月</small>
+                                            <h4>Normalize.css</h4>
+                                            <p>为了增强跨浏览器表现的一致性，我们使用了 Normalize.css，这是由 Nicolas Gallagher 和 Jonathan Neal 维护的一个CSS 重置样式库。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','4')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年5月</small>
+                                            <h4>布局容器</h4>
+                                            <p>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。我们提供了两个作此用处的类。注意，由于 padding 等属性的原因，这两种 容器类不能互相嵌套。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','5')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年6月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','6')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年7月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','7')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年8月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','8')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年9月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','9')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年10月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','10')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年11月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','11')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <small>{$pDate}年12月</small>
+                                            <h4>栅格系统</h4>
+                                            <p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。</p>
+                                            <a href="#" onclick="clickJx('{$pDate}','12')"><i class="fa fa-bar-chart ">绩效</i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <!-- End Example Events -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="__HOME__/js/jquery.min.js"></script>
+<script src="__JS__/layer.js"></script>
+<script type="text/javascript">
+    $(function(){
+        laydate.render({
+            elem: '#test2'
+            ,type: 'year'
+        });
+    })
+    //弹出一个页面层
+    function clickJx(pYear,pMonth){
+        layer.open({
+            type: 2,
+            area: ['600px', '600px'],
+            fixed: false, //不固定
+            maxmin: true,
+            content: '{:url("publics")}?pYear='+pYear+'&pMonth='+pMonth
+        });
+    }
+</script>
+</body>
+</html>

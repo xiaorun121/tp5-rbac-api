@@ -1,0 +1,1680 @@
+[ 2021-03-15T09:26:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.195528s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.121058s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.001045s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.093612s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.019686s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.098394s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.043087s ]
+[ sql ] [ SQL ] SELECT `p`.`role_id`,`p`.`menu_id`,`m`.`id`,`m`.`name`,`m`.`module_name`,`m`.`controller_name`,`m`.`view_name`,`m`.`parent_id`,`m`.`is_menu`,`m`.`sort` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `m`.`is_menu` = 1 ORDER BY m.sort asc [ RunTime:0.001247s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_role` [ RunTime:0.155127s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000570s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 1  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) ORDER BY sort asc [ RunTime:0.011507s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 7  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.001051s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 5  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 6  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 4  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 77  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 97  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 98  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 54  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) ORDER BY sort asc [ RunTime:0.000664s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 55  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 71  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 72  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 81  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) ORDER BY sort asc [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 82  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000627s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 88  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103)  AND `is_menu` = 1 [ RunTime:0.000356s ]
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:07+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003122s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.001795s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001427s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.002661s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.002836s ]
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:08+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002863s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.003968s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001291s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.001369s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.000759s ]
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:28+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002891s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.002046s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.004237s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.002663s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.000876s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` ORDER BY sort asc [ RunTime:0.014402s ]
+[ sql ] [ SQL ] SELECT `id` FROM `uvclinic_menu` WHERE  `module_name` = 'assessment'  AND `controller_name` = 'Menu'  AND `view_name` = 'mlist' LIMIT 1 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 5 [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`m`.`name` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `p`.`menu_id` IN (41,43,42) [ RunTime:0.000517s ]
+[ error ] [8]Use of undefined constant 菜单新增 - assumed '菜单新增'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+[ error ] [8]Use of undefined constant 菜单修改 - assumed '菜单修改'
+[ error ] [8]Use of undefined constant 菜单删除 - assumed '菜单删除'
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:29+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002777s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.001974s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001257s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.002047s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.001011s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_role` [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `uvclinic_role` WHERE  `uvclinic_role`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `uvclinic_role`.`delete_time` IS NULL ORDER BY sort asc,id asc LIMIT 0,20 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT `id` FROM `uvclinic_menu` WHERE  `module_name` = 'assessment'  AND `controller_name` = 'Role'  AND `view_name` = 'rlist' LIMIT 1 [ RunTime:0.000906s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 6 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`m`.`name` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `p`.`menu_id` IN (50,46,45,44) [ RunTime:0.000582s ]
+[ error ] [8]Use of undefined constant 角色新增 - assumed '角色新增'
+[ error ] [8]未定义变量: name
+[ error ] [8]Use of undefined constant 权限分配 - assumed '权限分配'
+[ error ] [8]Use of undefined constant 角色修改 - assumed '角色修改'
+[ error ] [8]Use of undefined constant 角色删除 - assumed '角色删除'
+[ error ] [8]Use of undefined constant 权限分配 - assumed '权限分配'
+[ error ] [8]Use of undefined constant 角色修改 - assumed '角色修改'
+[ error ] [8]Use of undefined constant 角色删除 - assumed '角色删除'
+[ error ] [8]Use of undefined constant 权限分配 - assumed '权限分配'
+[ error ] [8]Use of undefined constant 角色修改 - assumed '角色修改'
+[ error ] [8]Use of undefined constant 角色删除 - assumed '角色删除'
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:30+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002801s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.003341s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000832s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001490s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.003904s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.000963s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL ORDER BY id asc LIMIT 0,20 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT `id` FROM `uvclinic_menu` WHERE  `module_name` = 'assessment'  AND `controller_name` = 'User'  AND `view_name` = 'ulist' LIMIT 1 [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 4 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`m`.`name` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `p`.`menu_id` IN (49,48,47) [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_role` [ RunTime:0.003342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_role` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_role` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_role` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_role` WHERE  `id` = 11  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_role` WHERE  `id` = 12  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_role` WHERE  `id` = 10  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000289s ]
+[ error ] [8]Use of undefined constant 用户新增 - assumed '用户新增'
+[ error ] [8]Use of undefined constant 用户修改 - assumed '用户修改'
+[ error ] [8]Use of undefined constant 用户删除 - assumed '用户删除'
+[ error ] [8]Use of undefined constant 用户修改 - assumed '用户修改'
+[ error ] [8]Use of undefined constant 用户删除 - assumed '用户删除'
+[ error ] [8]Use of undefined constant 用户修改 - assumed '用户修改'
+[ error ] [8]Use of undefined constant 用户删除 - assumed '用户删除'
+[ error ] [8]Use of undefined constant 用户修改 - assumed '用户修改'
+[ error ] [8]Use of undefined constant 用户删除 - assumed '用户删除'
+[ error ] [8]Use of undefined constant 用户修改 - assumed '用户修改'
+[ error ] [8]Use of undefined constant 用户删除 - assumed '用户删除'
+[ error ] [8]Use of undefined constant 用户修改 - assumed '用户修改'
+[ error ] [8]Use of undefined constant 用户删除 - assumed '用户删除'
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:32+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003419s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.002778s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001261s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.011100s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_organization` [ RunTime:0.251725s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `uvclinic_organization` WHERE  `uvclinic_organization`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.111300s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_organization` WHERE  `uvclinic_organization`.`delete_time` IS NULL ORDER BY code asc LIMIT 0,200 [ RunTime:0.001599s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`parent_id` FROM `uvclinic_organization` WHERE  `uvclinic_organization`.`delete_time` IS NULL  AND (  char_length(`code`) <=2 ) [ RunTime:0.444674s ]
+[ sql ] [ SQL ] SELECT `id` FROM `uvclinic_menu` WHERE  `module_name` = 'assessment'  AND `controller_name` = 'Organization'  AND `view_name` = 'organizationinfo' LIMIT 1 [ RunTime:0.065729s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 77 [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`m`.`name` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `p`.`menu_id` IN (96,78,79,80,93,94) [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 0  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000500s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 2  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000820s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.002343s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000897s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 18  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 18  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 18  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000385s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 18  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 24  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 24  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 24  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 28  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000929s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001056s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 4  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 44  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 44  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.003980s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 39  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 73  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 73  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 73  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 73  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000864s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 79  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 79  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 79  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 83  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 68  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001344s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001123s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 101  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 101  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 101  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 101  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000983s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000956s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001216s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 96  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.008239s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 130  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001234s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001135s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 135  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 135  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 135  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 135  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.003330s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 145  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000748s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000399s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001355s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000825s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 131  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 158  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001051s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000796s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000186s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 159  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 1  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 186  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000200s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 191  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 191  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 191  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 191  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000687s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 200  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.001085s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 200  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000819s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `id` = 187  AND (  delete_time is  null ) LIMIT 1 [ RunTime:0.000397s ]
+[ error ] [8]未定义变量: info
+[ error ] [8]Use of undefined constant 组织信息新增 - assumed '组织信息新增'
+[ error ] [8]Use of undefined constant 导入数据 - assumed '导入数据'
+[ error ] [8]Use of undefined constant 导出数据 - assumed '导出数据'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+[ error ] [8]Use of undefined constant 组织信息修改 - assumed '组织信息修改'
+[ error ] [8]Use of undefined constant 组织信息删除 - assumed '组织信息删除'
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:36+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.002889s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.001540s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 2 LIMIT 1 [ RunTime:0.000549s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001595s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.006617s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103) [ RunTime:0.000918s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_position` [ RunTime:0.484050s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `uvclinic_position` WHERE  `uvclinic_position`.`delete_time` IS NULL LIMIT 1 [ RunTime:0.052469s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_position` WHERE  `uvclinic_position`.`delete_time` IS NULL ORDER BY code asc LIMIT 0,200 [ RunTime:0.036543s ]
+[ sql ] [ SQL ] SELECT `id` FROM `uvclinic_menu` WHERE  `module_name` = 'assessment'  AND `controller_name` = 'Position'  AND `view_name` = 'positioninfo' LIMIT 1 [ RunTime:0.000511s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 97 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT `p`.`id`,`m`.`name` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `p`.`menu_id` IN (99,100,101,102,103) [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_organization` [ RunTime:0.001791s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.165712s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000958s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000856s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.001525s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.001472s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.001367s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.001487s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100103' LIMIT 1 [ RunTime:0.001369s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.001338s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100103' LIMIT 1 [ RunTime:0.001481s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.001437s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100103' LIMIT 1 [ RunTime:0.001181s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.001313s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.000781s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.001132s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.001309s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.001209s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.001424s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.001428s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.001317s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.001265s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.001341s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.001428s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100205' LIMIT 1 [ RunTime:0.000507s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1002' LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100205' LIMIT 1 [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000581s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100203' LIMIT 1 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1003' LIMIT 1 [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100301' LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100402' LIMIT 1 [ RunTime:0.000560s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000587s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100402' LIMIT 1 [ RunTime:0.000542s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100402' LIMIT 1 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100402' LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1004' LIMIT 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100401' LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100502' LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1005' LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100601' LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1007' LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100202' LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1007' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100701' LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1007' LIMIT 1 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100701' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1007' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100701' LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1007' LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100701' LIMIT 1 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100203' LIMIT 1 [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100801' LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100801' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100801' LIMIT 1 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100801' LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100801' LIMIT 1 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1008' LIMIT 1 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100801' LIMIT 1 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1009' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100202' LIMIT 1 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1009' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100501' LIMIT 1 [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1009' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100504' LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100201' LIMIT 1 [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1006' LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101001' LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100202' LIMIT 1 [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101101' LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101101' LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101101' LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1001' LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101101' LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1012' LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1012' LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1012' LIMIT 1 [ RunTime:0.000155s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101202' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1012' LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101202' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1012' LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '101202' LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1101' LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000285s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1101' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1101' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1101' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100101' LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1101' LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1117' LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1102' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1103' LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1103' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1103' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1103' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1104' LIMIT 1 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '120401' LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1104' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '120401' LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1105' LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1125' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1125' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1125' LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1125' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1125' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1125' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1106' LIMIT 1 [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100401' LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1106' LIMIT 1 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110601' LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1106' LIMIT 1 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110601' LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1106' LIMIT 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110601' LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1106' LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1106' LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1107' LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1107' LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1107' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110702' LIMIT 1 [ RunTime:0.000371s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1108' LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1119' LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111901' LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1110' LIMIT 1 [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000194s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111101' LIMIT 1 [ RunTime:0.000356s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111101' LIMIT 1 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111101' LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112001' LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111101' LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1111' LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111101' LIMIT 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1112' LIMIT 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111901' LIMIT 1 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1113' LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111901' LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1114' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1114' LIMIT 1 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111401' LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1116' LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1116' LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111600' LIMIT 1 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1117' LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '100202' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1117' LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1118' LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111104' LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1119' LIMIT 1 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1119' LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111901' LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1119' LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111901' LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1119' LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111901' LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1120' LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1120' LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112001' LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1120' LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112001' LIMIT 1 [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1120' LIMIT 1 [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112001' LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1121' LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1121' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112101' LIMIT 1 [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1121' LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112101' LIMIT 1 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1122' LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112101' LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1122' LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112101' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1123' LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112401' LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1123' LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112401' LIMIT 1 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1124' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1124' LIMIT 1 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112401' LIMIT 1 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1124' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112401' LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1124' LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112401' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1124' LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '112401' LIMIT 1 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1202' LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110201' LIMIT 1 [ RunTime:0.000360s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1203' LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110301' LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1203' LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '120301' LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1104' LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110104' LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1204' LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '120401' LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1205' LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1205' LIMIT 1 [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1205' LIMIT 1 [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110501' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1206' LIMIT 1 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110601' LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1208' LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1208' LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1211' LIMIT 1 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1215' LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1215' LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122501' LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1215' LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1216' LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1216' LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1216' LIMIT 1 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1217' LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1218' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1219' LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1220' LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1223' LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122501' LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1224' LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122501' LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1225' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122801' LIMIT 1 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1225' LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122501' LIMIT 1 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1226' LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '111401' LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1226' LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '122501' LIMIT 1 [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1228' LIMIT 1 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '110103' LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1301' LIMIT 1 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1301' LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130101' LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1302' LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130102' LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1303' LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130101' LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_organization` WHERE  `code` = '1303' LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT `name` FROM `uvclinic_position` WHERE  `code` = '130101' LIMIT 1 [ RunTime:0.000346s ]
+[ error ] [8]Use of undefined constant 职位信息新增 - assumed '职位信息新增'
+[ error ] [8]Use of undefined constant 导入数据 - assumed '导入数据'
+[ error ] [8]Use of undefined constant 导出数据 - assumed '导出数据'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+[ error ] [8]Use of undefined constant 职位信息修改 - assumed '职位信息修改'
+[ error ] [8]Use of undefined constant 职位信息删除 - assumed '职位信息删除'
+
+---------------------------------------------------------------
+[ 2021-03-15T09:26:37+08:00 ] [ error ] [1]Uncaught think\exception\TemplateNotFoundException: template not exists:D:\phpstudy_pro\WWW\shwap/application/404.html in D:\phpstudy_pro\WWW\shwap\thinkphp\library\think\view\driver\Think.php:80
+Stack trace:
+#0 D:\phpstudy_pro\WWW\shwap\thinkphp\library\think\View.php(159): think\view\driver\Think->fetch('D:\\phpstudy_pro...', Array, Array)
+#1 D:\phpstudy_pro\WWW\shwap\thinkphp\library\think\response\View.php(36): think\View->fetch('D:\\phpstudy_pro...', Array, Array)
+#2 D:\phpstudy_pro\WWW\shwap\thinkphp\library\think\Response.php(305): think\response\View->output('D:\\phpstudy_pro...')
+#3 D:\phpstudy_pro\WWW\shwap\thinkphp\library\think\Response.php(94): think\Response->getContent()
+#4 D:\phpstudy_pro\WWW\shwap\thinkphp\library\think\Error.php(47): think\Response->send()
+#5 [internal function]: think\Error::appException(Object(think\exception\HttpException))
+#6 {main}
+  thrown
+
+---------------------------------------------------------------
