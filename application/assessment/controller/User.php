@@ -43,6 +43,7 @@ class User extends Common{
         $viewMenu = $get->getViewMeun();
 
         $this->assign('viewMenu',$viewMenu);
+
         return view();
     }
 

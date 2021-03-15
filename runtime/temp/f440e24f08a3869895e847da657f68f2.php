@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:100:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\position\positioninfo.html";i:1615776815;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,28 +48,26 @@
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
 
-                                      {in name="职位信息新增" value="$viewMenu"}
+                                      <?php if(in_array((职位信息新增), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("positionsave")}'><i class="layui-icon">&#xe608;</i> 添加</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("positionsave"); ?>'><i class="layui-icon">&#xe608;</i> 添加</a>
                                       </div>
-                                      {/in}
-                                      {in name="导入数据" value="$viewMenu"}
+                                      <?php endif; if(in_array((导入数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("positionupload")}'><i class="fa fa-cloud-upload"></i> 导入</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("positionupload"); ?>'><i class="fa fa-cloud-upload"></i> 导入</a>
                                       </div>
-                                      {/in}
-                                      {in name="导出数据" value="$viewMenu"}
+                                      <?php endif; if(in_array((导出数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("positiondownload")}'><i class="fa fa-cloud-download"></i> 导出</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("positiondownload"); ?>'><i class="fa fa-cloud-download"></i> 导出</a>
                                       </div>
-                                      {/in}
+                                      <?php endif; ?>
                                     </div>
-                                    <form action="{:url('positionInfo')}" method="get">
+                                    <form action="<?php echo url('positionInfo'); ?>" method="get">
                                         <div class="columns columns-right btn-group pull-right">
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
                                         <div class="pull-right search">
-                                          <input class="form-control input-outline" type="text" name="name" value="{if $name}{$name}{/if}" placeholder="职位名称">
+                                          <input class="form-control input-outline" type="text" name="name" value="<?php if($name): ?><?php echo $name; endif; ?>" placeholder="职位名称">
                                         </div>
                                     </form>
                                   </div>
@@ -92,39 +91,38 @@
                                             </tr>
                                       </thead>
                                       <tbody>
-                                          {volist name="positionInfo" id="v" key="k"}
-                                              <tr class="gradeA odd" id="d{$v.id}">
-                                                  <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.code}</td>
-                                                  <td class=" ">{$v.name}</td>
-                                                  <td class=" ">{:showPositionToOrganization($v.organization_code)}</td>
-                                                  <td class=" ">{:showPositionToParentName($v.parent_id)}</td>
-                                                  <td class=" ">{:showCity($v.organization_code)}</td>
-                                                  <td class=" ">{$v.is_executive_position}</td>
-                                                  <td class=" ">{$v.functional}</td>
-                                                  <td class=" ">{$v.functional_level}</td>
-                                                  <td class=" ">{$v.status}</td>
-                                                  <td class=" ">{$v.description}</td>
+                                          <?php if(is_array($positionInfo) || $positionInfo instanceof \think\Collection || $positionInfo instanceof \think\Paginator): $k = 0; $__LIST__ = $positionInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
+                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
+                                                  <td class="sorting_1"><?php echo $v['id']; ?></td>
+                                                  <td class=" "><?php echo $v['code']; ?></td>
+                                                  <td class=" "><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo showPositionToOrganization($v['organization_code']); ?></td>
+                                                  <td class=" "><?php echo showPositionToParentName($v['parent_id']); ?></td>
+                                                  <td class=" "><?php echo showCity($v['organization_code']); ?></td>
+                                                  <td class=" "><?php echo $v['is_executive_position']; ?></td>
+                                                  <td class=" "><?php echo $v['functional']; ?></td>
+                                                  <td class=" "><?php echo $v['functional_level']; ?></td>
+                                                  <td class=" "><?php echo $v['status']; ?></td>
+                                                  <td class=" "><?php echo $v['description']; ?></td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="职位信息修改" value="$viewMenu"}
-                                                              <a type="button" class="layui-btn" href="{:url('positionsave')}?id={$v.id}&name={$v.name}&code={$v.code}&parent_id={$v.parent_id}&status={$v.status}&description={$v.description}&organization_code={$v.organization_code}&is_executive_position={$v.is_executive_position}&functional={$v.functional}&functional_level={$v.functional_level}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          {/in}
-                                                          {in name="职位信息删除" value="$viewMenu"}
-                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          {/in}
+                                                          <?php if(in_array((职位信息修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <a type="button" class="layui-btn" href="<?php echo url('positionsave'); ?>?id=<?php echo $v['id']; ?>&name=<?php echo $v['name']; ?>&code=<?php echo $v['code']; ?>&parent_id=<?php echo $v['parent_id']; ?>&status=<?php echo $v['status']; ?>&description=<?php echo $v['description']; ?>&organization_code=<?php echo $v['organization_code']; ?>&is_executive_position=<?php echo $v['is_executive_position']; ?>&functional=<?php echo $v['functional']; ?>&functional_level=<?php echo $v['functional_level']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((职位信息删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                          <?php endif; ?>
                                                       </div>
                                                   </td>
                                               </tr>
-                                        {/volist}
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                       </tbody>
                                  </table>
                                  <div class="row">
 
                                      <div class="col-sm-6">
                                        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-                                          {$positionInfo->render()}
+                                          <?php echo $positionInfo->render(); ?>
                                        </div>
                                      </div>
                                  </div>
@@ -155,7 +153,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delPosition")}',
+                    url:'<?php echo url("delPosition"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',

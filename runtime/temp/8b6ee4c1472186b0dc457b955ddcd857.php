@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:89:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\menu\mlist.html";i:1615534358;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +29,7 @@
   .photos-demo img{width:200px;}
   thead tr th{text-align: center;}
   tbody tr td{text-align: center;}
+  tbody tr #menu{text-align: left;}
   .table>thead>tr>th{line-height: 30px;}
   </style>
 
@@ -46,11 +48,11 @@
                                 <div class="bootstrap-table">
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
-                                      {in name="角色新增" value="$viewMenu"}
+                                      <?php if(in_array((菜单新增), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a href="{:url('publicsaverole')}" class="layui-btn" id="add"><i class="layui-icon">&#xe608;</i> 添加</a>
+                                          <a href='<?php echo url("publicsavemenu"); ?>' class="layui-btn J_menuItem" id="add"><i class="layui-icon">&#xe608;</i> 添加</a>
                                       </div>
-                                      {/in}
+                                      <?php endif; ?>
                                     </div>
                                   </div>
 
@@ -58,46 +60,48 @@
                                     <table class="table table-striped table-bordered table-hover  dataTable" id="editable" aria-describedby="editable_info">
                                         <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="序号" width="5%">序号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="角色名">角色名</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="描述">描述</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="名称">名称</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="是否菜单">是否菜单</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="模块名称">模块名称</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="控制器名称">控制器名称</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="方法名称">方法名称</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="创建时间">创建时间</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="修改时间">修改时间</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="排序">排序</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="创建时间" >创建时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="15%">操作</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
                                             </tr>
                                       </thead>
                                       <tbody>
-                                        {volist name="info" id="v" key="k"}
-                                              <tr class="gradeA odd" id="d{$v.id}">
-                                                  <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.name}</td>
-                                                  <td class=" ">{$v.description}</td>
-                                                  <td class=" ">{$v.sort}</td>
-                                                  <td class=" ">{$v.create_time}</td>
-                                                  <td class="center " style="height:20px">
-                                                      {if condition="$v.id neq 1"}
+                                          <?php if(is_array($menu) || $menu instanceof \think\Collection || $menu instanceof \think\Paginator): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
+                                                <!-- <i class="fa fa-space-shuttle" style="color:#00fbe4"></i> -->
+                                                  <td class=" " id="menu"><?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ',$v["level"]);?><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo display($v['is_menu']); ?></td>
+                                                  <td class=" "><?php echo $v['module_name']; ?></td>
+                                                  <td class=" "><?php echo $v['controller_name']; ?></td>
+                                                  <td class=" "><?php echo $v['view_name']; ?></td>
+                                                  <td class=" "><?php echo $v['create_time']; ?></td>
+                                                  <td class=" "><?php echo $v['update_time']; ?></td>
+                                                  <td class=" "><?php echo $v['sort']; ?></td>
+
+                                                  <td class="center " style="height: 20px;">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="权限分配" value="$viewMenu"}
-                                                          <a  class="layui-btn" href="{:url('permission/rolepermissionsetting')}?role_id={$v.id}" title="权限设置" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="fa fa-cog"></i></a>
-                                                          {/in}
-                                                          {in name="角色修改" value="$viewMenu"}
-                                                          <a  class="layui-btn" href="{:url('publicsaverole')}?id={$v.id}&name={$v.name}&description={$v.description}&sort={$v.sort}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          {/in}
-                                                          {in name="角色删除" value="$viewMenu"}
-                                                          <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          {/in}
+                                                          <?php if(in_array((菜单修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                          <a type="button" class="layui-btn" href="<?php echo url('publicsavemenu'); ?>?id=<?php echo $v['id']; ?>&name=<?php echo $v['name']; ?>&is_menu=<?php echo $v['is_menu']; ?>&module_name=<?php echo $v['module_name']; ?>&controller_name=<?php echo $v['controller_name']; ?>&view_name=<?php echo $v['view_name']; ?>&sort=<?php echo $v['sort']; ?>&parent_id=<?php echo $v['parent_id']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((菜单删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                          <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                          <?php endif; ?>
                                                       </div>
-                                                      {/if}
                                                   </td>
                                               </tr>
-                                        {/volist}
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                       </tbody>
                                  </table>
                                  <div class="row">
 
                                      <div class="col-sm-6">
                                        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-                                          {$info->render()}
+
                                        </div>
                                      </div>
                                  </div>
@@ -127,7 +131,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delRole")}',
+                    url:'<?php echo url("delMenu"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',

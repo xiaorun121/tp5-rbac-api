@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:89:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\role\rlist.html";i:1615774212;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,11 +47,11 @@
                                 <div class="bootstrap-table">
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
-                                      {in name="角色新增" value="$viewMenu"}
+                                      <?php if(in_array((角色新增), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a href="{:url('publicsaverole')}" class="layui-btn" id="add"><i class="layui-icon">&#xe608;</i> 添加</a>
+                                          <a href="<?php echo url('publicsaverole'); ?>" class="layui-btn" id="add"><i class="layui-icon">&#xe608;</i> 添加</a>
                                       </div>
-                                      {/in}
+                                      <?php endif; ?>
                                     </div>
                                   </div>
 
@@ -67,37 +68,35 @@
                                             </tr>
                                       </thead>
                                       <tbody>
-                                        {volist name="info" id="v" key="k"}
-                                              <tr class="gradeA odd" id="d{$v.id}">
-                                                  <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.name}</td>
-                                                  <td class=" ">{$v.description}</td>
-                                                  <td class=" ">{$v.sort}</td>
-                                                  <td class=" ">{$v.create_time}</td>
+                                        <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $k = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($k % 2 );++$k;?>
+                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
+                                                  <td class="sorting_1"><?php echo $v['id']; ?></td>
+                                                  <td class=" "><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo $v['description']; ?></td>
+                                                  <td class=" "><?php echo $v['sort']; ?></td>
+                                                  <td class=" "><?php echo $v['create_time']; ?></td>
                                                   <td class="center " style="height:20px">
-                                                      {if condition="$v.id neq 1"}
+                                                      <?php if($v['id'] != 1): ?>
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="权限分配" value="$viewMenu"}
-                                                          <a  class="layui-btn" href="{:url('permission/rolepermissionsetting')}?role_id={$v.id}" title="权限设置" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="fa fa-cog"></i></a>
-                                                          {/in}
-                                                          {in name="角色修改" value="$viewMenu"}
-                                                          <a  class="layui-btn" href="{:url('publicsaverole')}?id={$v.id}&name={$v.name}&description={$v.description}&sort={$v.sort}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          {/in}
-                                                          {in name="角色删除" value="$viewMenu"}
-                                                          <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          {/in}
+                                                          <?php if(in_array((权限分配), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                          <a  class="layui-btn" href="<?php echo url('permission/rolepermissionsetting'); ?>?role_id=<?php echo $v['id']; ?>" title="权限设置" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="fa fa-cog"></i></a>
+                                                          <?php endif; if(in_array((角色修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                          <a  class="layui-btn" href="<?php echo url('publicsaverole'); ?>?id=<?php echo $v['id']; ?>&name=<?php echo $v['name']; ?>&description=<?php echo $v['description']; ?>&sort=<?php echo $v['sort']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((角色删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                          <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                          <?php endif; ?>
                                                       </div>
-                                                      {/if}
+                                                      <?php endif; ?>
                                                   </td>
                                               </tr>
-                                        {/volist}
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                       </tbody>
                                  </table>
                                  <div class="row">
 
                                      <div class="col-sm-6">
                                        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-                                          {$info->render()}
+                                          <?php echo $info->render(); ?>
                                        </div>
                                      </div>
                                  </div>
@@ -127,7 +126,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delRole")}',
+                    url:'<?php echo url("delRole"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',

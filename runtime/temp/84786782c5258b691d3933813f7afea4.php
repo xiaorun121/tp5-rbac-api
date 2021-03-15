@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:100:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\position\positionsave.html";i:1615775844;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 </head>
 <body>
 
-<form class="layui-form" action="{:url('positionSave')}" method="post" data-type="ajax" lay-filter="myselect">
+<form class="layui-form" action="<?php echo url('positionSave'); ?>" method="post" data-type="ajax" lay-filter="myselect">
 
   <div class="layui-form-item">
 
@@ -26,9 +27,9 @@
     <label class="layui-form-label">部门：</label>
     <div class="layui-input-inline sjzzdy" style="width:270px;">
       <select name="organization_code" lay-verify="required" lay-reqtext="上级组织单元是必填项，岂能为空？" style="width:270px;" lay-search>
-          {volist name="organizationInfo" id="v"}
-              <option value="{$v.code}" {if condition="$info.organization_code eq $v.code"}selected{/if}><?php echo str_repeat('- - ',$v["level"]);?>{$v.name}</option>
-          {/volist}
+          <?php if(is_array($organizationInfo) || $organizationInfo instanceof \think\Collection || $organizationInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $organizationInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+              <option value="<?php echo $v['code']; ?>" <?php if($info['organization_code'] == $v['code']): ?>selected<?php endif; ?>><?php echo str_repeat('- - ',$v["level"]);?><?php echo $v['name']; ?></option>
+          <?php endforeach; endif; else: echo "" ;endif; ?>
       </select>
     </div>
   </div>
@@ -36,14 +37,14 @@
   <div class="layui-form-item">
     <label class="layui-form-label">组织编码：</label>
     <div class="layui-input-inline">
-      <input type="text" name="code"  placeholder="组织编码" value="{$info.code}" autocomplete="off" class="layui-input" style="width: 270px;">
+      <input type="text" name="code"  placeholder="组织编码" value="<?php echo $info['code']; ?>" autocomplete="off" class="layui-input" style="width: 270px;">
     </div>
   </div>
 
   <div class="layui-form-item">
     <label class="layui-form-label">职位名称：</label>
     <div class="layui-input-inline">
-      <input type="text" name="name"  placeholder="组织名称" value="{$info.name}" autocomplete="off" class="layui-input" style="width: 270px;">
+      <input type="text" name="name"  placeholder="组织名称" value="<?php echo $info['name']; ?>" autocomplete="off" class="layui-input" style="width: 270px;">
     </div>
   </div>
 
@@ -51,8 +52,8 @@
     <label class="layui-form-label">主管职位：</label>
     <div class="layui-input-inline">
       <select name="is_executive_position">
-          <option value="是" {if condition="$info.is_executive_position eq '是'"}selected{/if}>是</option>
-          <option value="否" {if condition="$info.is_executive_position eq '否'"}selected{/if}{if !$info.is_executive_position}selected{/if}>否</option>
+          <option value="是" <?php if($info['is_executive_position'] == '是'): ?>selected<?php endif; ?>>是</option>
+          <option value="否" <?php if($info['is_executive_position'] == '否'): ?>selected<?php endif; if(!$info['is_executive_position']): ?>selected<?php endif; ?>>否</option>
       </select>
     </div>
   </div>
@@ -63,9 +64,9 @@
     <div class="layui-input-inline">
       <select name="parent_id" lay-search>
         <option value="">--请选择--</option>
-        {volist name="position" id="v"}
-            <option value="{$v.code}" {if condition="$info.parent_id eq $v.code"}selected{/if}>{$v.code}--{:showPositionToOrganization($v.organization_code)}--{$v.name}</option>
-        {/volist}
+        <?php if(is_array($position) || $position instanceof \think\Collection || $position instanceof \think\Paginator): $i = 0; $__LIST__ = $position;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+            <option value="<?php echo $v['code']; ?>" <?php if($info['parent_id'] == $v['code']): ?>selected<?php endif; ?>><?php echo $v['code']; ?>--<?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo $v['name']; ?></option>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
       </select>
     </div>
   </div>
@@ -75,9 +76,9 @@
     <div class="layui-input-inline">
       <select name="city" lay-search>
         <option value="">--请选择--</option>
-        {volist name="cityInfo" id="v"}
-            <option value="{$v.name}" {if condition="$info.cname eq $v.name"}selected{/if}>{$v.name}</option>
-        {/volist}
+        <?php if(is_array($cityInfo) || $cityInfo instanceof \think\Collection || $cityInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $cityInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+            <option value="<?php echo $v['name']; ?>" <?php if($info['cname'] == $v['name']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
       </select>
     </div>
   </div>
@@ -104,29 +105,29 @@
   <div class="layui-form-item">
     <label class="layui-form-label">职位状态：</label>
     <div class="layui-input-block">
-        {if condition="$info['status'] eq '启用'"}
+        <?php if($info['status'] == '启用'): ?>
             <input type="radio" name="status" value="启用" title="启用" checked="">
             <input type="radio" name="status" value="关闭" title="关闭">
-        {elseif condition="$info['status'] eq '关闭'"/}
+        <?php elseif($info['status'] == '关闭'): ?>
             <input type="radio" name="status" value="启用" title="启用">
             <input type="radio" name="status" value="关闭" title="关闭" checked="">
-        {else/}
+        <?php else: ?>
             <input type="radio" name="status" value="启用" title="启用" checked="">
             <input type="radio" name="status" value="关闭" title="关闭">
-        {/if}
+        <?php endif; ?>
     </div>
   </div>
 
   <div class="layui-form-item">
     <label class="layui-form-label">职位说明：</label>
     <div class="layui-input-block">
-        <textarea name="description" placeholder="请输入内容" class="layui-textarea" style="width: 430px;">{$info.description}</textarea>
+        <textarea name="description" placeholder="请输入内容" class="layui-textarea" style="width: 430px;"><?php echo $info['description']; ?></textarea>
     </div>
   </div>
 
   <div class="layui-form-item">
     <div class="layui-input-block">
-      <input type="hidden" name='id' value="{$info.id}">
+      <input type="hidden" name='id' value="<?php echo $info['id']; ?>">
       <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
       <a  class="layui-btn layui-btn-normal layui-btn-radius" onclick="javascript:history.go(-1);">返回</a>
@@ -149,7 +150,7 @@ layui.use(['layer', 'form'], function(){
     //      var province=$("select[name=province").val();
     //      var htmls = '<option value="">--请选择--</option>';
     //      $.ajax({
-    //      		url: '{:url("getCity")}',
+    //      		url: '<?php echo url("getCity"); ?>',
     //         data:{province:province},
     //      		type: "post",
     //      		dataType : "json",

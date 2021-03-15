@@ -40,6 +40,7 @@ class Position extends Common{
         $viewMenu = $get->getViewMeun();
 
         $this->assign('viewMenu',$viewMenu);
+
         return view();
     }
 
@@ -98,6 +99,11 @@ class Position extends Common{
 
             $this->assign('position',$position);
             $this->assign('organizationInfo',$organizationArr);
+
+            //录属城市
+            // $cityInfo = Db::name('city_view')->Distinct(true)->field('name')->select();
+            //
+            // $this->assign('cityInfo',$cityInfo);
             return view();
         }
     }

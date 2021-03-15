@@ -11,7 +11,7 @@
 use app\assessment\model\Menu;
 use app\assessment\model\KpiAssessment;
 // 应用公共文件
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(0);
 
 use think\Db;
 
@@ -152,6 +152,17 @@ function showPositionToParentName($parent_id){
         $positionName = Db::name('position')->where('code',$parent_id)->value('name');
         return $positionName;
     }
+}
+
+// 职位信息获取相应的城市
+function showCity($organization_code){
+    $organization_code = substr($organization_code,0,2);
+    if($organization_code == 10){
+        $res = Db::name('organization')->where('code',1)->value('name');
+    }else{
+        $res = Db::name('organization')->where('code',$organization_code)->value('name');
+    }
+    return $res;
 }
 
 // 状态
