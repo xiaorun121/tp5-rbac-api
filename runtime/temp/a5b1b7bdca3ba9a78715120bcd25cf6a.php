@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnelsave.html";i:1615794478;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,9 +109,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="personal_to_company_id"  lay-search lay-verify="required" lay-reqtext="公司是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                {volist name="personnelToCompanyInfo" id="v"}
-                                    <option value="{$v.id}">{$v.name}</option>
-                                {/volist}
+                                <?php if(is_array($personnelToCompanyInfo) || $personnelToCompanyInfo instanceof \think\Collection || $personnelToCompanyInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $personnelToCompanyInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['id']; ?>"><?php echo $v['name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>
@@ -371,9 +372,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_fxqy" lay-search lay-verify="required" lay-reqtext="发薪区域是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                {volist name="fxqyInfo" id="v"}
-                                    <option value="{$v.name}">{$v.name}</option>
-                                {/volist}
+                                <?php if(is_array($fxqyInfo) || $fxqyInfo instanceof \think\Collection || $fxqyInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $fxqyInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['name']; ?>"><?php echo $v['name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>

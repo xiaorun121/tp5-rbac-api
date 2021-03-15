@@ -4,6 +4,7 @@ namespace app\assessment\controller;
 use think\Controller;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Personnel as PersonnelModel;
+use app\assessment\model\PersonnelToCompany;
 
 // 员工管理
 class Personnel extends Common{
@@ -20,8 +21,20 @@ class Personnel extends Common{
     }
 
 
-    public function personnelSave(){
-        return view();
+    public function personnelSave($id = 0){
+        $personnel = new Personnel();
+        if(request()->isPost()){
+            if($id != 0){
+                $personnel = $personnel::get($id);
+            }
+
+        }else{
+            $personnelToCompany = new PersonnelToCompany();
+            $personnelToCompanyInfo = $personnelToCompany->where('status','=','启用')->order('sort asc')->select();
+            $this->assign('personnelToCompanyInfo',$personnelToCompanyInfo);
+            return view();
+        }
+
     }
 
 

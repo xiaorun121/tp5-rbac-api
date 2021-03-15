@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:93:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personal\enpty.html";i:1615781941;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personal\userstocompany.html";i:1615794018;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>中心考核类型</title>
+    <title>员工信息公司维护</title>
     <link href="__HOME__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="__HOME__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="__HOME__/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
@@ -49,9 +49,9 @@
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
 
-                                      <?php if(in_array((录入), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                      <?php if(in_array((员工信息公司维护添加), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='<?php echo url("saveenpty"); ?>'><i class="layui-icon">&#xe608;</i> 录入</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("usersToCompanySave"); ?>'><i class="layui-icon">&#xe608;</i> 录入</a>
                                       </div>
                                       <?php endif; ?>
                                     </div>
@@ -70,17 +70,10 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="序号" width="5%">序号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="工号">工号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="姓名">姓名</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="部门">部门</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="职位">职位</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="手机">手机</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="邮箱">邮箱</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="录入时间">录入时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="来源">来源</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="办理状态">办理状态</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作日期">操作日期</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="生效日期">生效日期</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="公司名称">公司名称</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="状态">状态</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="排序">排序</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="创建日期">创建日期</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
                                             </tr>
                                       </thead>
@@ -88,24 +81,16 @@
                                           <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                                               <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
                                                   <td class="sorting_1"><?php echo $v['id']; ?></td>
-                                                  <td class=" "><?php echo $v['username']; ?></td>
-                                                  <td class=" "><?php echo $v['nickname']; ?></td>
-                                                  <td class=" "><?php echo $v['email']; ?></td>
-                                                  <td class=" "><?php echo $v['sex']; ?></td>
-                                                  <td class=" "><?php echo $v['birth']; ?></td>
-                                                  <td class=" "><?php echo $v['address']; ?></td>
-                                                  <td class=" "><?php echo showRole($v['role_id']); ?></td>
-                                                  <td class=" "><?php echo showOpen($v['open']); ?></td>
+                                                  <td class=" "><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo $v['status']; ?></td>
+                                                  <td class=" "><?php echo $v['sort']; ?></td>
                                                   <td class=" "><?php echo $v['create_time']; ?></td>
-                                                  <td class=" "><?php echo $v['ip']; ?></td>
-                                                  <td class=" "><?php echo $v['login_num']; ?></td>
-                                                  <td class=" "><?php echo $v['login_time']; ?></td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          <?php if(in_array((用户修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                                              <a type="button" class="layui-btn" href="<?php echo url('publicsaveuser'); ?>?id=<?php echo $v['id']; ?>&username=<?php echo $v['username']; ?>&nickname=<?php echo $v['nickname']; ?>&email=<?php echo $v['email']; ?>&sex=<?php echo $v['sex']; ?>&birth=<?php echo $v['birth']; ?>&address=<?php echo $v['address']; ?>&role_id=<?php echo $v['role_id']; ?>&open=<?php echo $v['open']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          <?php endif; if(in_array((用户删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                          <?php if(in_array((员工信息公司维护修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <a type="button" class="layui-btn" href="<?php echo url('usersToCompanySave'); ?>?id=<?php echo $v['id']; ?>&name=<?php echo $v['name']; ?>&status=<?php echo $v['status']; ?>&sort=<?php echo $v['sort']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((员工信息公司维护删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                                               <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
                                                           <?php endif; ?>
                                                       </div>
@@ -118,7 +103,7 @@
 
                                      <div class="col-sm-6">
                                        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-
+                                          <?php echo $info->render(); ?>
                                        </div>
                                      </div>
                                  </div>
@@ -149,7 +134,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'<?php echo url("delUser"); ?>',
+                    url:'<?php echo url("delPersonalToCompany"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',

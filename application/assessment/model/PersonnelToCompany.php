@@ -4,7 +4,7 @@ namespace app\assessment\model;
 use think\Model;
 use traits\model\SoftDelete;
 
-class KpiAssessment extends Model{
+class PersonnelToCompany extends Model{
 
     // 设置当前模型对应的完整数据表名称
 
