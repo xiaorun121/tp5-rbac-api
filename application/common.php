@@ -154,7 +154,7 @@ function showPositionToParentName($parent_id){
     }
 }
 
-// 职位信息获取相应的城市
+// 职位信息获取相应的组织信息
 function showCity($organization_code){
     $organization_code = substr($organization_code,0,2);
     if($organization_code == 10){
