@@ -22,6 +22,8 @@ class Admin extends Common{
 
             if($con->save($data) == 1){
                 return success('保存成功',url('website'));
+            }else{
+                return error('请更新数据！');
             }
 
         }

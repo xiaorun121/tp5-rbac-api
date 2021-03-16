@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1615781979;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1615887425;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,8 +59,12 @@
                                         <div class="columns columns-right btn-group pull-right">
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
-                                        <div class="pull-right search">
-                                          <input class="form-control input-outline" type="text" name="name" value="<?php if($name): ?><?php echo $name; endif; ?>" placeholder="用户名">
+                                        <div class="pull-right search" style="width: 90px;">
+                                          <input class="form-control input-outline" type="text" name="name" value="<?php if($name): ?><?php echo $name; endif; ?>" placeholder="姓名">
+                                        </div>
+
+                                        <div class="pull-right search" style="width: 90px;margin-right:3px">
+                                          <input class="form-control input-outline" type="text" name="code" value="<?php if($code): ?><?php echo $code; endif; ?>" placeholder="工号">
                                         </div>
                                     </form>
                                   </div>
@@ -76,11 +80,10 @@
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="职位">职位</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="手机">手机</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="邮箱">邮箱</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="录入时间">录入时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="来源">来源</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="办理状态">办理状态</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作日期">操作日期</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="生效日期">生效日期</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="录入时间">入职时间</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="来源">离职时间</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="办理状态">员工类型</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作日期">员工状态</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
                                             </tr>
                                       </thead>
@@ -88,23 +91,21 @@
                                           <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                                               <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
                                                   <td class="sorting_1"><?php echo $v['id']; ?></td>
-                                                  <td class=" "><?php echo $v['username']; ?></td>
-                                                  <td class=" "><?php echo $v['nickname']; ?></td>
+                                                  <td class=" "><?php echo $v['code']; ?></td>
+                                                  <td class=" "><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo $v['organization']; ?></td>
+                                                  <td class=" "><?php echo showPositionName($v['position_id']); ?></td>
+                                                  <td class=" "><?php echo $v['phone']; ?></td>
                                                   <td class=" "><?php echo $v['email']; ?></td>
-                                                  <td class=" "><?php echo $v['sex']; ?></td>
-                                                  <td class=" "><?php echo $v['birth']; ?></td>
-                                                  <td class=" "><?php echo $v['address']; ?></td>
-                                                  <td class=" "><?php echo showRole($v['role_id']); ?></td>
-                                                  <td class=" "><?php echo showOpen($v['open']); ?></td>
-                                                  <td class=" "><?php echo $v['create_time']; ?></td>
-                                                  <td class=" "><?php echo $v['ip']; ?></td>
-                                                  <td class=" "><?php echo $v['login_num']; ?></td>
-                                                  <td class=" "><?php echo $v['login_time']; ?></td>
+                                                  <td class=" "><?php echo $v['repty_date']; ?></td>
+                                                  <td class=" "><?php echo $v['leave_date']; ?></td>
+                                                  <td class=" "><?php echo $v['staff_type']; ?></td>
+                                                  <td class=" "><?php echo $v['staff_status']; ?></td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
                                                           <?php if(in_array((员工信息修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                                              <a type="button" class="layui-btn" href="<?php echo url('personnelsave'); ?>?id=<?php echo $v['id']; ?>&username=<?php echo $v['username']; ?>&nickname=<?php echo $v['nickname']; ?>&email=<?php echo $v['email']; ?>&sex=<?php echo $v['sex']; ?>&birth=<?php echo $v['birth']; ?>&address=<?php echo $v['address']; ?>&role_id=<?php echo $v['role_id']; ?>&open=<?php echo $v['open']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                              <a type="button" class="layui-btn" href="<?php echo url('personnelsave'); ?>?id=<?php echo $v['id']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
                                                           <?php endif; if(in_array((员工信息删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                                               <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
                                                           <?php endif; ?>

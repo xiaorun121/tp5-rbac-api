@@ -49,6 +49,8 @@ class Common extends Controller
 	        }
 
 	        return view();
+
+
 	    }
 
 			/* 生成二维码 */

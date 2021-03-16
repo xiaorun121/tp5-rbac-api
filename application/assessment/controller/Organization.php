@@ -100,6 +100,8 @@ class Organization extends Common{
 
             if($organization->save($data) == 1){
                 return success('保存成功',url('organizationInfo'));
+            }else{
+                return error('请更新数据！');
             }
 
         }else{

@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 15/03/2021 16:03:31
+ Date: 16/03/2021 18:08:06
 */
 
 SET NAMES utf8mb4;
@@ -700,7 +700,7 @@ CREATE TABLE `uvclinic_menu`  (
   `sort` int(11) NULL DEFAULT NULL COMMENT '排序',
   `user_id` int(11) NULL DEFAULT NULL COMMENT '创建人',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 113 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 114 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of uvclinic_menu
@@ -712,7 +712,7 @@ INSERT INTO `uvclinic_menu` VALUES (96, '获取城市级数据', 'assessment', '
 INSERT INTO `uvclinic_menu` VALUES (4, '用户管理', 'assessment', 'user', 'ulist', 1, 1, '2021-02-07 17:21:47', '2021-02-07 17:21:49', NULL, 4, 2);
 INSERT INTO `uvclinic_menu` VALUES (5, '菜单管理', 'assessment', 'menu', 'mlist', 1, 1, '2021-02-07 17:52:08', '2021-02-07 17:52:08', NULL, 2, 2);
 INSERT INTO `uvclinic_menu` VALUES (6, '角色管理', 'assessment', 'role', 'rlist', 1, 1, '2021-02-07 17:52:40', '2021-02-07 17:52:40', NULL, 3, 2);
-INSERT INTO `uvclinic_menu` VALUES (7, '配置管理', 'assessment', 'admin', 'website', 1, 1, '2021-02-07 17:53:13', '2021-02-10 11:29:22', NULL, 1, 2);
+INSERT INTO `uvclinic_menu` VALUES (7, '配置管理', 'assessment', 'admin', 'website', 1, 1, '2021-02-07 17:53:13', '2021-03-16 18:05:48', NULL, 1, 2);
 INSERT INTO `uvclinic_menu` VALUES (9, '员工列表', 'assessment', 'persion', 'plist', 2, 1, '2021-02-07 17:54:54', '2021-02-07 17:54:57', NULL, 1, 2);
 INSERT INTO `uvclinic_menu` VALUES (98, '员工信息', 'assessment', 'personnel', 'personnellist', 1, 1, '2021-03-05 10:11:36', '2021-03-15 12:26:13', NULL, 7, 2);
 INSERT INTO `uvclinic_menu` VALUES (10, '员工考核类型', 'assessment', 'persion', 'patype', 2, 1, '2021-02-07 17:56:01', '2021-02-07 17:56:01', NULL, 2, 2);
@@ -764,13 +764,14 @@ INSERT INTO `uvclinic_menu` VALUES (102, '导入数据', 'assessment', 'position
 INSERT INTO `uvclinic_menu` VALUES (103, '导出数据', 'assessment', 'position', 'positiondownload', 97, 0, '2021-03-08 16:20:07', '2021-03-08 16:20:07', NULL, 5, 2);
 INSERT INTO `uvclinic_menu` VALUES (104, '员工信息添加', 'assessment', 'personnel', 'personnelsave', 98, 0, '2021-03-15 12:07:54', '2021-03-15 12:07:54', NULL, 1, 2);
 INSERT INTO `uvclinic_menu` VALUES (105, '员工信息修改', 'assessment', 'personnel', 'personnelsave', 98, 0, '2021-03-15 12:08:16', '2021-03-15 12:08:16', NULL, 2, 2);
-INSERT INTO `uvclinic_menu` VALUES (106, '删除员工信息', 'assessment', 'personnel', 'delpersonnel', 98, 0, '2021-03-15 12:08:41', '2021-03-15 12:08:41', NULL, 3, 2);
+INSERT INTO `uvclinic_menu` VALUES (106, '员工信息删除', 'assessment', 'personnel', 'delpersonnel', 98, 0, '2021-03-15 12:08:41', '2021-03-16 17:35:40', NULL, 3, 2);
 INSERT INTO `uvclinic_menu` VALUES (107, '导入数据', 'assessment', 'personnel', 'personnelupload', 98, 0, '2021-03-15 12:09:15', '2021-03-15 12:09:15', NULL, 4, 2);
 INSERT INTO `uvclinic_menu` VALUES (108, '导出数据', 'assessment', 'personnel', 'personneldownload', 98, 0, '2021-03-15 12:09:38', '2021-03-15 12:09:38', NULL, 5, 2);
 INSERT INTO `uvclinic_menu` VALUES (109, '员工信息公司维护', 'assessment', 'personal', 'userstocompany', 54, 1, '2021-03-15 15:07:30', '2021-03-15 15:07:30', NULL, 4, 2);
 INSERT INTO `uvclinic_menu` VALUES (110, '员工信息公司维护添加', 'assessment', 'personal', 'userstocompanysave', 109, 0, '2021-03-15 15:10:23', '2021-03-15 15:10:23', NULL, 1, 2);
 INSERT INTO `uvclinic_menu` VALUES (111, '员工信息公司维护修改', 'assessment', 'personal', 'userstocompanysave', 109, 0, '2021-03-15 15:10:44', '2021-03-15 15:10:44', NULL, 2, 2);
 INSERT INTO `uvclinic_menu` VALUES (112, '员工信息公司维护删除', 'assessment', 'personal', 'deluserstocompany', 109, 0, '2021-03-15 15:11:18', '2021-03-15 15:11:18', NULL, 3, 2);
+INSERT INTO `uvclinic_menu` VALUES (113, '根据职位获取部门信息', 'assessment', 'personnel', 'getdepartment', 98, 0, '2021-03-16 10:17:29', '2021-03-16 10:17:29', NULL, 5, 2);
 
 -- ----------------------------
 -- Table structure for uvclinic_organization
@@ -1192,7 +1193,7 @@ CREATE TABLE `uvclinic_permission`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `delete_time` datetime(0) NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 150 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '权限表' ROW_FORMAT = Fixed;
+) ENGINE = MyISAM AUTO_INCREMENT = 151 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '权限表' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of uvclinic_permission
@@ -1318,6 +1319,7 @@ INSERT INTO `uvclinic_permission` VALUES (146, 1, 109, '2021-03-15 15:07:30', '2
 INSERT INTO `uvclinic_permission` VALUES (147, 1, 110, '2021-03-15 15:10:23', '2021-03-15 15:10:23', NULL);
 INSERT INTO `uvclinic_permission` VALUES (148, 1, 111, '2021-03-15 15:10:44', '2021-03-15 15:10:44', NULL);
 INSERT INTO `uvclinic_permission` VALUES (149, 1, 112, '2021-03-15 15:11:18', '2021-03-15 15:11:18', NULL);
+INSERT INTO `uvclinic_permission` VALUES (150, 1, 113, '2021-03-16 10:17:29', '2021-03-16 10:17:29', NULL);
 
 -- ----------------------------
 -- Table structure for uvclinic_persion_assessment
@@ -1362,22 +1364,25 @@ CREATE TABLE `uvclinic_personnel`  (
   `is_foreign` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否为外籍',
   `IDcard` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '身份证号',
   `sex` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '性别',
-  `birth` datetime(0) NULL DEFAULT NULL COMMENT '出生日期',
+  `birth` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '出生日期',
   `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
   `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机',
   `personal_to_company_id` int(11) NULL DEFAULT NULL COMMENT '公司',
-  `department` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '部门',
-  `position` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '职位',
+  `organization_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '部门code',
+  `organization` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '部门',
+  `position_id` int(11) NULL DEFAULT NULL COMMENT '职位id',
   `part_time_job` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '兼职',
+  `ptj_class_code` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '兼职部门code',
   `ptj_class` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '兼职部门',
   `report_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '汇报人',
-  `repty_date` datetime(0) NULL DEFAULT NULL COMMENT '入职日期',
+  `repty_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '入职日期',
+  `leave_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '离职日期',
   `staff_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '员工类型',
   `staff_status` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '员工状态',
   `is_probation` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否在试用期',
   `is_directory_display` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否在通讯录中显示',
-  `probation_start_date` datetime(0) NULL DEFAULT NULL COMMENT '试用期开始日期',
-  `probation_end_date` datetime(0) NULL DEFAULT NULL COMMENT '试用期结束日期',
+  `probation_start_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '试用期开始日期',
+  `probation_end_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '试用期结束日期',
   `probation_term` int(11) NULL DEFAULT NULL COMMENT '试用期期限（月）',
   `attendance_rules` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '考勤规则',
   `probation_rules` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '试用期规则',
@@ -1413,10 +1418,19 @@ CREATE TABLE `uvclinic_personnel`  (
   `cn_is_pzj` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否有派驻假',
   `cn_is_bt` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否有补贴',
   `cn_is_glgz` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否有工龄工资',
+  `user_id` int(11) NULL DEFAULT NULL,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `delete_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `code,name`(`code`, `name`, `department`) USING BTREE,
-  INDEX `position`(`position`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  INDEX `code,name`(`code`, `name`, `organization`) USING BTREE,
+  INDEX `position`(`position_id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of uvclinic_personnel
+-- ----------------------------
+INSERT INTO `uvclinic_personnel` VALUES (1, '100001', '杨环球', 'YangHuanQiu', '', '否', '360602196902180034', '男', '1969-02-18', 'yanghuanqiu@uvclinic.cn', '13918352688', 1, '1001', '董事会办公室', 1, '', '', '', '', '2008-05-16', '', '正式', '在职', '否', '是', '', '', 0, '', '', 52, '有休假额度', '休假规则', '仅验证打卡记录', '154', '0', '154', '是', '按入职日期计算休假额度', '常日班', '上海', '', '本科', '本科', '', '无', '无', '群众', '已婚', '', '上海市长宁区延安西路688弄5号16D室', '上海市长宁区延安西路688弄5号16D室', '130445708205', '', '6217680203140616', '', '', '100', '否', '否', '否', '是', 2, '2021-03-16 15:35:08', '2021-03-16 15:35:08', NULL);
 
 -- ----------------------------
 -- Table structure for uvclinic_personnel_to_company
@@ -2228,7 +2242,7 @@ CREATE TABLE `uvclinic_role`  (
 -- ----------------------------
 INSERT INTO `uvclinic_role` VALUES (1, '超级管理员', '超级管理员', '2021-02-05 10:17:44', '2021-02-05 13:49:13', NULL, 'on', 1);
 INSERT INTO `uvclinic_role` VALUES (2, '测试', '', '2021-02-05 10:17:52', '2021-03-05 11:23:00', '2021-03-05 11:23:00', 'on', 3);
-INSERT INTO `uvclinic_role` VALUES (10, '管理员', '管理员', '2021-02-23 09:23:27', '2021-02-23 09:23:27', NULL, NULL, 2);
+INSERT INTO `uvclinic_role` VALUES (10, '管理员', '管理员', '2021-02-23 09:23:27', '2021-03-16 18:06:54', NULL, NULL, 2);
 INSERT INTO `uvclinic_role` VALUES (6, '12312', '3123123123', '2021-02-05 17:15:42', '2021-02-05 17:15:52', '2021-02-05 17:15:52', 'off', 3);
 INSERT INTO `uvclinic_role` VALUES (7, '231', '23123123', '2021-02-05 17:21:37', '2021-02-05 17:21:43', '2021-02-05 17:21:43', 'on', 4);
 INSERT INTO `uvclinic_role` VALUES (8, '123', '123', '2021-02-08 11:02:42', '2021-02-08 11:19:49', '2021-02-08 11:19:49', 'off', 12);
@@ -2269,7 +2283,7 @@ CREATE TABLE `uvclinic_user`  (
 -- Records of uvclinic_user
 -- ----------------------------
 INSERT INTO `uvclinic_user` VALUES (1, '1', '1', '11@qq.com', '女', NULL, '1', 2, 'off', 'c4ca4238a0b923820dcc509a6f75849b', '2021-02-05 15:59:24', '2021-02-09 09:45:09', '2021-02-09 09:45:09', NULL, NULL, 0, NULL, NULL);
-INSERT INTO `uvclinic_user` VALUES (2, 'admin', 'admin', 'admin@admin.com', '男', '1993-01-21', '上海市', 1, 'on', 'c4ca4238a0b923820dcc509a6f75849b', '2021-02-05 16:04:51', '2021-02-09 16:26:35', NULL, '127.0.0.1', '2021-03-15 09:48:08', 19, NULL, NULL);
+INSERT INTO `uvclinic_user` VALUES (2, 'admin', 'admin', 'admin@admin.com', '男', '1993-01-21', '上海市', 1, 'on', 'c4ca4238a0b923820dcc509a6f75849b', '2021-02-05 16:04:51', '2021-03-16 18:07:19', NULL, '127.0.0.1', '2021-03-15 09:48:08', 19, NULL, NULL);
 INSERT INTO `uvclinic_user` VALUES (4, '1', '1', '1@1.com', '男', '2021-02-08', '上海市徐汇区桂林路406号2号楼', 2, 'off', 'c4ca4238a0b923820dcc509a6f75849b', '2021-02-08 11:03:08', '2021-02-09 09:45:04', '2021-02-09 09:45:04', '127.0.0.1', NULL, 0, NULL, NULL);
 INSERT INTO `uvclinic_user` VALUES (5, '1234', '1234', '1234@11.com', '女', '2021-02-08', '1234', 2, 'off', '202cb962ac59075b964b07152d234b70', '2021-02-08 11:08:55', '2021-02-08 11:14:18', '2021-02-08 11:14:18', '127.0.0.1', NULL, 0, NULL, NULL);
 INSERT INTO `uvclinic_user` VALUES (6, 'ceshi', 'ceshi', 'ceshi@ceshi.com', '男', '2021-02-09', 'ceshi', 2, 'on', 'c4ca4238a0b923820dcc509a6f75849b', '2021-02-09 09:47:10', '2021-02-09 09:47:10', NULL, '127.0.0.1', '2021-02-23 11:40:08', 10, NULL, NULL);
@@ -2298,6 +2312,6 @@ CREATE TABLE `uvclinic_website`  (
 -- ----------------------------
 -- Records of uvclinic_website
 -- ----------------------------
-INSERT INTO `uvclinic_website` VALUES (1, '网站名称', '域名', '标题', '关键字', '描述', 'copyright');
+INSERT INTO `uvclinic_website` VALUES (1, '全景医学影像', 'www.uvclinic.cn', '全景医学影像', '全景医学影像', '全景医学影像', 'copyright');
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -58,8 +58,12 @@
                                         <div class="columns columns-right btn-group pull-right">
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
-                                        <div class="pull-right search">
-                                          <input class="form-control input-outline" type="text" name="name" value="{if $name}{$name}{/if}" placeholder="用户名">
+                                        <div class="pull-right search" style="width: 90px;">
+                                          <input class="form-control input-outline" type="text" name="name" value="{if $name}{$name}{/if}" placeholder="姓名">
+                                        </div>
+
+                                        <div class="pull-right search" style="width: 90px;margin-right:3px">
+                                          <input class="form-control input-outline" type="text" name="code" value="{if $code}{$code}{/if}" placeholder="工号">
                                         </div>
                                     </form>
                                   </div>
@@ -75,11 +79,10 @@
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="职位">职位</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="手机">手机</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="邮箱">邮箱</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="录入时间">录入时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="来源">来源</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="办理状态">办理状态</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作日期">操作日期</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="生效日期">生效日期</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="录入时间">入职时间</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="来源">离职时间</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="办理状态">员工类型</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作日期">员工状态</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
                                             </tr>
                                       </thead>
@@ -87,23 +90,21 @@
                                           {volist name="info" id="v"}
                                               <tr class="gradeA odd" id="d{$v.id}">
                                                   <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.username}</td>
-                                                  <td class=" ">{$v.nickname}</td>
+                                                  <td class=" ">{$v.code}</td>
+                                                  <td class=" ">{$v.name}</td>
+                                                  <td class=" ">{$v.organization}</td>
+                                                  <td class=" ">{:showPositionName($v.position_id)}</td>
+                                                  <td class=" ">{$v.phone}</td>
                                                   <td class=" ">{$v.email}</td>
-                                                  <td class=" ">{$v.sex}</td>
-                                                  <td class=" ">{$v.birth}</td>
-                                                  <td class=" ">{$v.address}</td>
-                                                  <td class=" ">{:showRole($v.role_id)}</td>
-                                                  <td class=" ">{:showOpen($v.open)}</td>
-                                                  <td class=" ">{$v.create_time}</td>
-                                                  <td class=" ">{$v.ip}</td>
-                                                  <td class=" ">{$v.login_num}</td>
-                                                  <td class=" ">{$v.login_time}</td>
+                                                  <td class=" ">{$v.repty_date}</td>
+                                                  <td class=" ">{$v.leave_date}</td>
+                                                  <td class=" ">{$v.staff_type}</td>
+                                                  <td class=" ">{$v.staff_status}</td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
                                                           {in name="员工信息修改" value="$viewMenu"}
-                                                              <a type="button" class="layui-btn" href="{:url('personnelsave')}?id={$v.id}&username={$v.username}&nickname={$v.nickname}&email={$v.email}&sex={$v.sex}&birth={$v.birth}&address={$v.address}&role_id={$v.role_id}&open={$v.open}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                              <a type="button" class="layui-btn" href="{:url('personnelsave')}?id={$v.id}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
                                                           {/in}
                                                           {in name="员工信息删除" value="$viewMenu"}
                                                               <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>

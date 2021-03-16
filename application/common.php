@@ -154,6 +154,15 @@ function showPositionToParentName($parent_id){
     }
 }
 
+// 职位信息
+function showPositionName($id){
+    $positionName = Db::name('position')->where('id',$id)->value('name');
+    if($positionName){
+        return $positionName;
+    }
+
+}
+
 // 职位信息获取相应的组织信息
 function showCity($organization_code){
     $organization_code = substr($organization_code,0,2);

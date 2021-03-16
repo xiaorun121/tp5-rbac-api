@@ -67,7 +67,10 @@ class Menu extends Common{
                 }
 
                 return success('保存成功',url('mlist'));
+            }else{
+                return error('请更新数据！');
             }
+            
         }else{
             $data = [
                 'id'               => $id,

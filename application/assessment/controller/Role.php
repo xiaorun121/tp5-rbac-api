@@ -49,7 +49,10 @@ class Role extends Common{
 
             if($role->save() == 1){
                 return success('保存成功',url('rlist'));
+            }else{
+                return error('请更新数据！');
             }
+            
         }else{
             $data = [
                 'id'   => $id,

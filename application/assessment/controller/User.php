@@ -84,9 +84,13 @@ class User extends Common{
             }else{
                 $data['open']        = 'off';
             }
+            
             if($user->save($data) == 1){
                 return success('保存成功',url('ulist'));
+            }else{
+                return error('请更新数据！');
             }
+
         }else{
             $data = [
                 'id'       => $id,

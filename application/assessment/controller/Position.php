@@ -68,6 +68,8 @@ class Position extends Common{
 
             if($position->save($data) == 1){
                 return success('保存成功',url('positionInfo'));
+            }else{
+                return error('请更新数据！');
             }
 
         }else{
