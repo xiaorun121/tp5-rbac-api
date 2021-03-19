@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnelsave.html";i:1616116960;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,25 +27,25 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red">*</span> 工号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="code" value="{$info.code}" lay-verify="required|code" lay-reqtext="工号是必填项，岂能为空？" autocomplete="off" class="layui-input">
+                        <input type="text" name="code" value="<?php echo $info['code']; ?>" lay-verify="required|code" lay-reqtext="工号是必填项，岂能为空？" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 姓名</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="name" value="{$info.name}" lay-verify="required|name" lay-reqtext="姓名是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input" id="name" oninput="ConvertName()">
+                        <input type="text" name="name" value="<?php echo $info['name']; ?>" lay-verify="required|name" lay-reqtext="姓名是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input" id="name" oninput="ConvertName()">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">拼音</label>
                     <div class="layui-input-inline">
-                        <input type="tel" name="pingyin" value="{$info.pingyin}" lay-verify="pingyin" autocomplete="off" class="layui-input" id="full">
+                        <input type="tel" name="pingyin" value="<?php echo $info['pingyin']; ?>" lay-verify="pingyin" autocomplete="off" class="layui-input" id="full">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">英文名</label>
                     <div class="layui-input-inline">
-                      <input type="tel" name="en_name" value="{$info.en_name}" lay-verify="en_name" autocomplete="off" class="layui-input">
+                      <input type="tel" name="en_name" value="<?php echo $info['en_name']; ?>" lay-verify="en_name" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
@@ -56,8 +57,8 @@
                     <div class="layui-input-block">
                         <div class="layui-inline" style="width:190px;">
                             <select name="is_foreign" lay-verify="required" lay-reqtext="是否为外籍是必填项，岂能为空？">
-                                <option value="是" {if condition="$info.is_foreign eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.is_foreign eq '否'"}selected{/if}{if !$info.is_foreign}selected{/if}>否</option>
+                                <option value="是" <?php if($info['is_foreign'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['is_foreign'] == '否'): ?>selected<?php endif; if(!$info['is_foreign']): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -65,19 +66,19 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 身份证号码</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="IDcard" value="{$info.IDcard}" lay-verify="identity" id="IDcard" lay-reqtext="身份证号码是必填项，岂能为空？" autocomplete="off" class="layui-input" oninput="getIDCardInfo()">
+                        <input type="text" name="IDcard" value="<?php echo $info['IDcard']; ?>" lay-verify="identity" id="IDcard" lay-reqtext="身份证号码是必填项，岂能为空？" autocomplete="off" class="layui-input" oninput="getIDCardInfo()">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">邮箱</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="email" value="{$info.email}" autocomplete="off" class="layui-input">
+                        <input type="text" name="email" value="<?php echo $info['email']; ?>" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">手机</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="phone" value="{$info.phone}" autocomplete="off" class="layui-input">
+                        <input type="text" name="phone" value="<?php echo $info['phone']; ?>" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
@@ -87,7 +88,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 出生日期</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="birth" id="birth" value="{$info.birth}" lay-verify="required" onchange="getBirth()" lay-reqtext="出生日期是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="birth" id="birth" value="<?php echo $info['birth']; ?>" lay-verify="required" onchange="getBirth()" lay-reqtext="出生日期是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -96,8 +97,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="sex" lay-verify="required" id="sex" lay-reqtext="性别是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="男" {if condition="$info.sex eq '男'"}selected{/if}>男</option>
-                                <option value="女" {if condition="$info.sex eq '女'"}selected{/if}>女</option>
+                                <option value="男" <?php if($info['sex'] == '男'): ?>selected<?php endif; ?>>男</option>
+                                <option value="女" <?php if($info['sex'] == '女'): ?>selected<?php endif; ?>>女</option>
                             </select>
                         </div>
                     </div>
@@ -108,9 +109,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="personal_to_company"  lay-search lay-verify="required" lay-reqtext="公司是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                {volist name="personnelToCompanyInfo" id="v"}
-                                    <option value="{$v.name}" {if condition="$info.personal_to_company eq $v.name"}selected{/if}>{$v.name}</option>
-                                {/volist}
+                                <?php if(is_array($personnelToCompanyInfo) || $personnelToCompanyInfo instanceof \think\Collection || $personnelToCompanyInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $personnelToCompanyInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['name']; ?>" <?php if($info['personal_to_company'] == $v['name']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>
@@ -118,8 +119,8 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 部门</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="organization" id="organization" value="{$info.organization}" lay-verify="required" readonly style="color: gray;background-color: #ededef !important;" lay-reqtext="部门是必填项，请选择职位进行关联" autocomplete="off" class="layui-input">
-                        <input type="hidden" name="organization_code" value="{$info.organization_code}" id="organization_code">
+                        <input type="text" name="organization" id="organization" value="<?php echo $info['organization']; ?>" lay-verify="required" readonly style="color: gray;background-color: #ededef !important;" lay-reqtext="部门是必填项，请选择职位进行关联" autocomplete="off" class="layui-input">
+                        <input type="hidden" name="organization_code" value="<?php echo $info['organization_code']; ?>" id="organization_code">
                     </div>
                 </div>
 
@@ -132,9 +133,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="position_id" lay-verify="required" lay-filter="position" lay-reqtext="职位是必填项，岂能为空？" lay-search>
                                 <option value="">请选择</option>
-                                {volist name="positionInfo" id="v"}
-                                    <option value="{$v.code}" {if condition="$info.position_id eq $v.code"}selected{/if}>{$v.name}--{:showPositionToOrganization($v.organization_code)}--{:showCity($v.organization_code)}</option>
-                                {/volist}
+                                <?php if(is_array($positionInfo) || $positionInfo instanceof \think\Collection || $positionInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $positionInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['code']; ?>" <?php if($info['position_id'] == $v['code']): ?>selected<?php endif; ?>><?php echo $v['name']; ?>--<?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo showCity($v['organization_code']); ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>
@@ -145,9 +146,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="part_time_job" lay-filter="part_time_job" lay-search>
                                 <option value="">请选择</option>
-                                {volist name="positionInfo" id="v"}
-                                    <option value="{$v.id}" {if condition="$info.part_time_job eq $v.id"}selected{/if}>{$v.name}--{:showPositionToOrganization($v.organization_code)}--{:showCity($v.organization_code)}</option>
-                                {/volist}
+                                <?php if(is_array($positionInfo) || $positionInfo instanceof \think\Collection || $positionInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $positionInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['id']; ?>" <?php if($info['part_time_job'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?>--<?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo showCity($v['organization_code']); ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>
@@ -155,8 +156,8 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">兼职部门</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="ptj_class" id="ptj_class" value="{$info.ptj_class}" autocomplete="off" class="layui-input" readonly style="color: gray;background-color: #ededef !important;">
-                        <input type="hidden" name="ptj_class_code" value="{$info.ptj_class_code}" id="ptj_class_code">
+                        <input type="text" name="ptj_class" id="ptj_class" value="<?php echo $info['ptj_class']; ?>" autocomplete="off" class="layui-input" readonly style="color: gray;background-color: #ededef !important;">
+                        <input type="hidden" name="ptj_class_code" value="<?php echo $info['ptj_class_code']; ?>" id="ptj_class_code">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -165,9 +166,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="report_name" lay-search autocomplete="off">
                                 <option value="">请选择</option>
-                                {volist name="personnelToName" id="v"}
-                                    <option value="{$v.code}" {if condition="$v.code eq $info.report_name"}selected="selected"{/if}>{$v.name}</option>
-                                {/volist}
+                                <?php if(is_array($personnelToName) || $personnelToName instanceof \think\Collection || $personnelToName instanceof \think\Paginator): $i = 0; $__LIST__ = $personnelToName;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['code']; ?>" <?php if($v['code'] == $info['report_name']): ?>selected="selected"<?php endif; ?>><?php echo $v['name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>
@@ -178,13 +179,13 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 入职日期</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="repty_date" id="repty_date" value="{$info.repty_date}" lay-verify="required" lay-reqtext="入职日期是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="repty_date" id="repty_date" value="<?php echo $info['repty_date']; ?>" lay-verify="required" lay-reqtext="入职日期是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"> 离职日期</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="leave_date" id="leave_date" value="{$info.leave_date}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="leave_date" id="leave_date" value="<?php echo $info['leave_date']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -193,11 +194,11 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="staff_type" lay-verify="required" lay-reqtext="员工类型是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="正式" {if condition="$info.staff_type eq '正式'"}selected{/if}>正式</option>
-                                <option value="劳务" {if condition="$info.staff_type eq '劳务'"}selected{/if}>劳务</option>
-                                <option value="实习" {if condition="$info.staff_type eq '实习'"}selected{/if}>实习</option>
-                                <option value="外派" {if condition="$info.staff_type eq '外派'"}selected{/if}>外派</option>
-                                <option value="兼职" {if condition="$info.staff_type eq '兼职'"}selected{/if}>兼职</option>
+                                <option value="正式" <?php if($info['staff_type'] == '正式'): ?>selected<?php endif; ?>>正式</option>
+                                <option value="劳务" <?php if($info['staff_type'] == '劳务'): ?>selected<?php endif; ?>>劳务</option>
+                                <option value="实习" <?php if($info['staff_type'] == '实习'): ?>selected<?php endif; ?>>实习</option>
+                                <option value="外派" <?php if($info['staff_type'] == '外派'): ?>selected<?php endif; ?>>外派</option>
+                                <option value="兼职" <?php if($info['staff_type'] == '兼职'): ?>selected<?php endif; ?>>兼职</option>
                             </select>
                         </div>
                     </div>
@@ -208,8 +209,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="staff_status" lay-verify="required" lay-reqtext="员工类型是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="在职" {if condition="$info.staff_status eq '在职'"}selected{/if}>在职</option>
-                                <option value="离职" {if condition="$info.staff_status eq '离职'"}selected{/if}>离职</option>
+                                <option value="在职" <?php if($info['staff_status'] == '在职'): ?>selected<?php endif; ?>>在职</option>
+                                <option value="离职" <?php if($info['staff_status'] == '离职'): ?>selected<?php endif; ?>>离职</option>
                             </select>
                         </div>
                     </div>
@@ -223,8 +224,8 @@
                     <div class="layui-input-block">
                         <div class="layui-inline" style="width:190px;">
                             <select name="is_probation" lay-verify="required" lay-reqtext="是否在试用期内是必填项，岂能为空？">
-                                <option value="是" {if condition="$info.is_probation eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.is_probation eq '否'"}selected{/if}{if !$info.is_probation}selected{/if}>否</option>
+                                <option value="是" <?php if($info['is_probation'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['is_probation'] == '否'): ?>selected<?php endif; if(!$info['is_probation']): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -234,8 +235,8 @@
                     <div class="layui-input-block">
                         <div class="layui-inline" style="width:190px;">
                             <select name="is_directory_display">
-                                <option value="是" {if condition="$info.is_directory_display eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.is_directory_display eq '否'"}selected{/if}{if !$info.is_directory_display}selected{/if}>否</option>
+                                <option value="是" <?php if($info['is_directory_display'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['is_directory_display'] == '否'): ?>selected<?php endif; if(!$info['is_directory_display']): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -243,13 +244,13 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">试用期开始日期</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="probation_start_date" value="{$info.probation_start_date}" id="probation_start_date" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="probation_start_date" value="<?php echo $info['probation_start_date']; ?>" id="probation_start_date" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">试用期结束日期</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="probation_end_date" value="{$info.probation_end_date}" id="probation_end_date" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="probation_end_date" value="<?php echo $info['probation_end_date']; ?>" id="probation_end_date" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
@@ -260,13 +261,13 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">试用期期限(月)</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="probation_term" value="{$info.probation_term}" autocomplete="off" class="layui-input">
+                        <input type="text" name="probation_term" value="<?php echo $info['probation_term']; ?>" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">考勤规则</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="attendance_rules" value="{$info.attendance_rules}" autocomplete="off" class="layui-input">
+                        <input type="text" name="attendance_rules" value="<?php echo $info['attendance_rules']; ?>" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -282,7 +283,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">年龄</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="age" id="age" value="{$info.age}" placeholder="" autocomplete="off" class="layui-input" readonly style="color: gray;background-color: #ededef !important;">
+                        <input type="text" name="age" id="age" value="<?php echo $info['age']; ?>" placeholder="" autocomplete="off" class="layui-input" readonly style="color: gray;background-color: #ededef !important;">
                     </div>
                 </div>
 
@@ -295,8 +296,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="leave_quota_rules">
                                 <option value="">请选择</option>
-                                <option value="有休假额度" {if condition="$info.leave_quota_rules eq '有休假额度'"}selected{/if}>有休假额度</option>
-                                <option value="无休假额度" {if condition="$info.leave_quota_rules eq '无休假额度'"}selected{/if}>无休假额度</option>
+                                <option value="有休假额度" <?php if($info['leave_quota_rules'] == '有休假额度'): ?>selected<?php endif; ?>>有休假额度</option>
+                                <option value="无休假额度" <?php if($info['leave_quota_rules'] == '无休假额度'): ?>selected<?php endif; ?>>无休假额度</option>
                             </select>
                         </div>
                     </div>
@@ -307,8 +308,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="vacation_use_rules" lay-verify="required" lay-reqtext="休假使用规则是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="使用规则" {if condition="$info.vacation_use_rules eq '使用规则'"}selected{/if}>使用规则</option>
-                                <option value="总部规则" {if condition="$info.vacation_use_rules eq '总部规则'"}selected{/if}>总部规则</option>
+                                <option value="使用规则" <?php if($info['vacation_use_rules'] == '使用规则'): ?>selected<?php endif; ?>>使用规则</option>
+                                <option value="总部规则" <?php if($info['vacation_use_rules'] == '总部规则'): ?>selected<?php endif; ?>>总部规则</option>
                             </select>
                         </div>
                     </div>
@@ -319,10 +320,10 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="work_overtime_rules" lay-verify="required" lay-reqtext="加班类型是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="使用班次中的加班规则" {if condition="$info.work_overtime_rules eq '使用班次中的加班规则'"}selected{/if}>使用班次中的加班规则</option>
-                                <option value="验证打卡记录与加班单" {if condition="$info.work_overtime_rules eq '验证打卡记录与加班单'"}selected{/if}>验证打卡记录与加班单</option>
-                                <option value="仅验证打卡记录" {if condition="$info.work_overtime_rules eq '仅验证打卡记录'"}selected{/if}>仅验证打卡记录</option>
-                                <option value="仅验证加班单" {if condition="$info.work_overtime_rules eq '仅验证加班单'"}selected{/if}>仅验证加班单</option>
+                                <option value="使用班次中的加班规则" <?php if($info['work_overtime_rules'] == '使用班次中的加班规则'): ?>selected<?php endif; ?>>使用班次中的加班规则</option>
+                                <option value="验证打卡记录与加班单" <?php if($info['work_overtime_rules'] == '验证打卡记录与加班单'): ?>selected<?php endif; ?>>验证打卡记录与加班单</option>
+                                <option value="仅验证打卡记录" <?php if($info['work_overtime_rules'] == '仅验证打卡记录'): ?>selected<?php endif; ?>>仅验证打卡记录</option>
+                                <option value="仅验证加班单" <?php if($info['work_overtime_rules'] == '仅验证加班单'): ?>selected<?php endif; ?>>仅验证加班单</option>
                             </select>
                         </div>
                     </div>
@@ -340,7 +341,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 入职前工龄(月)</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="repty_first_age" value="{$info.repty_first_age}" lay-verify="required" lay-reqtext="入职前工龄（月）是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="repty_first_age" value="<?php echo $info['repty_first_age']; ?>" lay-verify="required" lay-reqtext="入职前工龄（月）是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -354,8 +355,8 @@
                     <div class="layui-input-block">
                         <div class="layui-inline" style="width:190px;">
                             <select name="is_hc_control" lay-verify="required" lay-reqtext="是否占编是必填项，岂能为空？">
-                                <option value="是" {if condition="$info.is_hc_control eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.is_hc_control eq '否'"}selected{/if}{if !$info.is_hc_control}selected{/if}>否</option>
+                                <option value="是" <?php if($info['is_hc_control'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['is_hc_control'] == '否'): ?>selected<?php endif; if(!$info['is_hc_control']): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -366,8 +367,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="leave_entitlement_type" lay-verify="required" lay-reqtext="休假起始类型是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="按自然年计算休假额度" {if condition="$info.leave_entitlement_type eq '按自然年计算休假额度'"}selected{/if}>按自然年计算休假额度</option>
-                                <option value="按入职日期计算休假额度" {if condition="$info.leave_entitlement_type eq '按入职日期计算休假额度'"}selected{/if}>按入职日期计算休假额度</option>
+                                <option value="按自然年计算休假额度" <?php if($info['leave_entitlement_type'] == '按自然年计算休假额度'): ?>selected<?php endif; ?>>按自然年计算休假额度</option>
+                                <option value="按入职日期计算休假额度" <?php if($info['leave_entitlement_type'] == '按入职日期计算休假额度'): ?>selected<?php endif; ?>>按入职日期计算休假额度</option>
                             </select>
                         </div>
                     </div>
@@ -381,9 +382,9 @@
                     <div class="layui-input-block">
                         <div class="layui-inline" style="width:190px;">
                             <select name="shift_type" lay-verify="required" lay-reqtext="班次类型是必填项，岂能为空？">
-                                <option value="常日班" {if condition="$info.shift_type eq '常日班'"}selected{/if}>常日班</option>
-                                <option value="轮排班" {if condition="$info.shift_type eq '轮排班'"}selected{/if}>轮排班</option>
-                                <option value="智能班" {if condition="$info.shift_type eq '智能班'"}selected{/if}>智能班</option>
+                                <option value="常日班" <?php if($info['shift_type'] == '常日班'): ?>selected<?php endif; ?>>常日班</option>
+                                <option value="轮排班" <?php if($info['shift_type'] == '轮排班'): ?>selected<?php endif; ?>>轮排班</option>
+                                <option value="智能班" <?php if($info['shift_type'] == '智能班'): ?>selected<?php endif; ?>>智能班</option>
                             </select>
                         </div>
                     </div>
@@ -394,9 +395,9 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_fxqy" lay-search lay-verify="required" lay-reqtext="发薪区域是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                {volist name="fxqyInfo" id="v"}
-                                    <option value="{$v.name}" {if condition="$info.cn_fxqy eq $v.name"}selected{/if}>{$v.name}</option>
-                                {/volist}
+                                <?php if(is_array($fxqyInfo) || $fxqyInfo instanceof \think\Collection || $fxqyInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $fxqyInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['name']; ?>" <?php if($info['cn_fxqy'] == $v['name']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                             </select>
                         </div>
                     </div>
@@ -404,13 +405,13 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">招聘来源</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_zply" value="{$info.cn_zply}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_zply" value="<?php echo $info['cn_zply']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 最高学历</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_zgxl" lay-verify="required" value="{$info.cn_zgxl}" lay-reqtext="最高学历是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_zgxl" lay-verify="required" value="<?php echo $info['cn_zgxl']; ?>" lay-reqtext="最高学历是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
@@ -424,12 +425,12 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_zgxl_2" lay-search lay-verify="required" lay-reqtext="最高学历2是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="博士后" {if condition="$info.cn_zgxl_2 eq '博士后'"}selected{/if}>博士后</option>
-                                <option value="博士" {if condition="$info.cn_zgxl_2 eq '博士'"}selected{/if}>博士</option>
-                                <option value="硕士" {if condition="$info.cn_zgxl_2 eq '硕士'"}selected{/if}>硕士</option>
-                                <option value="本科" {if condition="$info.cn_zgxl_2 eq '本科'"}selected{/if}>本科</option>
-                                <option value="大专" {if condition="$info.cn_zgxl_2 eq '大专'"}selected{/if}>大专</option>
-                                <option value="其他" {if condition="$info.cn_zgxl_2 eq '其他'"}selected{/if}>其他</option>
+                                <option value="博士后" <?php if($info['cn_zgxl_2'] == '博士后'): ?>selected<?php endif; ?>>博士后</option>
+                                <option value="博士" <?php if($info['cn_zgxl_2'] == '博士'): ?>selected<?php endif; ?>>博士</option>
+                                <option value="硕士" <?php if($info['cn_zgxl_2'] == '硕士'): ?>selected<?php endif; ?>>硕士</option>
+                                <option value="本科" <?php if($info['cn_zgxl_2'] == '本科'): ?>selected<?php endif; ?>>本科</option>
+                                <option value="大专" <?php if($info['cn_zgxl_2'] == '大专'): ?>selected<?php endif; ?>>大专</option>
+                                <option value="其他" <?php if($info['cn_zgxl_2'] == '其他'): ?>selected<?php endif; ?>>其他</option>
                             </select>
                         </div>
                     </div>
@@ -437,19 +438,19 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">学位</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_xw" value="{$info.cn_xw}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_xw" value="<?php echo $info['cn_xw']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 毕业院校</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_byyx" value="{$info.cn_byyx}" lay-verify="required" lay-reqtext="毕业院校是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_byyx" value="<?php echo $info['cn_byyx']; ?>" lay-verify="required" lay-reqtext="毕业院校是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 所学专业</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_sxzy" value="{$info.cn_sxzy}" lay-verify="required" lay-reqtext="所学专业是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_sxzy" value="<?php echo $info['cn_sxzy']; ?>" lay-verify="required" lay-reqtext="所学专业是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
             </div>
@@ -461,12 +462,12 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_zzmm" lay-search lay-verify="required" lay-reqtext="政治面貌是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="群众" {if condition="$info.cn_zzmm eq '群众'"}selected{/if}>群众</option>
-                                <option value="党员" {if condition="$info.cn_zzmm eq '党员'"}selected{/if}>党员</option>
-                                <option value="团员" {if condition="$info.cn_zzmm eq '团员'"}selected{/if}>团员</option>
-                                <option value="民主党派" {if condition="$info.cn_zzmm eq '民主党派'"}selected{/if}>民主党派</option>
-                                <option value="无党派人士" {if condition="$info.cn_zzmm eq '无党派人士'"}selected{/if}>无党派人士</option>
-                                <option value="其他" {if condition="$info.cn_zzmm eq '其他'"}selected{/if}>其他</option>
+                                <option value="群众" <?php if($info['cn_zzmm'] == '群众'): ?>selected<?php endif; ?>>群众</option>
+                                <option value="党员" <?php if($info['cn_zzmm'] == '党员'): ?>selected<?php endif; ?>>党员</option>
+                                <option value="团员" <?php if($info['cn_zzmm'] == '团员'): ?>selected<?php endif; ?>>团员</option>
+                                <option value="民主党派" <?php if($info['cn_zzmm'] == '民主党派'): ?>selected<?php endif; ?>>民主党派</option>
+                                <option value="无党派人士" <?php if($info['cn_zzmm'] == '无党派人士'): ?>selected<?php endif; ?>>无党派人士</option>
+                                <option value="其他" <?php if($info['cn_zzmm'] == '其他'): ?>selected<?php endif; ?>>其他</option>
                             </select>
                         </div>
                     </div>
@@ -477,10 +478,10 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_hy" lay-verify="required" lay-reqtext="婚姻是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="已婚" {if condition="$info.cn_hy eq '已婚'"}selected{/if}>已婚</option>
-                                <option value="未婚" {if condition="$info.cn_hy eq '未婚'"}selected{/if}>未婚</option>
-                                <option value="离异" {if condition="$info.cn_hy eq '离异'"}selected{/if}>离异</option>
-                                <option value="未知" {if condition="$info.cn_hy eq '未知'"}selected{/if}>未知</option>
+                                <option value="已婚" <?php if($info['cn_hy'] == '已婚'): ?>selected<?php endif; ?>>已婚</option>
+                                <option value="未婚" <?php if($info['cn_hy'] == '未婚'): ?>selected<?php endif; ?>>未婚</option>
+                                <option value="离异" <?php if($info['cn_hy'] == '离异'): ?>selected<?php endif; ?>>离异</option>
+                                <option value="未知" <?php if($info['cn_hy'] == '未知'): ?>selected<?php endif; ?>>未知</option>
                             </select>
                         </div>
                     </div>
@@ -488,13 +489,13 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">户籍</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_hj" value="{$info.cn_hj}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_hj" value="<?php echo $info['cn_hj']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 身份证详细地址</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_sfzdz" value="{$info.cn_sfzdz}" lay-verify="required" lay-reqtext="身份证详细地址是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_sfzdz" value="<?php echo $info['cn_sfzdz']; ?>" lay-verify="required" lay-reqtext="身份证详细地址是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
             </div>
@@ -503,25 +504,25 @@
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 现居住详细住址</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_xjzddz" value="{$info.cn_xjzddz}" lay-verify="required" lay-reqtext="现居住详细地址是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_xjzddz" value="<?php echo $info['cn_xjzddz']; ?>" lay-verify="required" lay-reqtext="现居住详细地址是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">公积金账号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_gjjzh" value="{$info.cn_gjjzh}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_gjjzh" value="<?php echo $info['cn_gjjzh']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">开户行</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_khh" value="{$info.cn_khh}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_khh" value="<?php echo $info['cn_khh']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label"><span style="color:red;">*</span> 工资卡号</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_zzkh" value="{$info.cn_zzkh}" lay-verify="required" lay-reqtext="工资卡号是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_zzkh" value="<?php echo $info['cn_zzkh']; ?>" lay-verify="required" lay-reqtext="工资卡号是必填项，岂能为空？" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
             </div>
@@ -530,19 +531,19 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">紧急联系人</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_jjlxr" value="{$info.cn_jjlxr}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_jjlxr" value="<?php echo $info['cn_jjlxr']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">紧急联系人电话</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_jjlxrdh" value="{$info.cn_jjlxrdh}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_jjlxrdh" value="<?php echo $info['cn_jjlxrdh']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label">职级</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="cn_zj" value="{$info.cn_zj}" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" name="cn_zj" value="<?php echo $info['cn_zj']; ?>" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -551,8 +552,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_is_fsry" lay-verify="required" lay-reqtext="是否是放射人员是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="是" {if condition="$info.cn_is_fsry eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.cn_is_fsry eq '否'"}selected{/if}>否</option>
+                                <option value="是" <?php if($info['cn_is_fsry'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['cn_is_fsry'] == '否'): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -568,8 +569,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_is_pzj" lay-verify="required" lay-reqtext="是否有派驻假是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="是" {if condition="$info.cn_is_pzj eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.cn_is_pzj eq '否'"}selected{/if}>否</option>
+                                <option value="是" <?php if($info['cn_is_pzj'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['cn_is_pzj'] == '否'): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -580,8 +581,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_is_bt" lay-verify="required" lay-reqtext="是否有补贴是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="是" {if condition="$info.cn_is_bt eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.cn_is_bt eq '否'"}selected{/if}>否</option>
+                                <option value="是" <?php if($info['cn_is_bt'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['cn_is_bt'] == '否'): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -592,8 +593,8 @@
                         <div class="layui-inline" style="width:190px;">
                             <select name="cn_is_glgz" lay-verify="required" lay-reqtext="是否有工龄工资是必填项，岂能为空？">
                                 <option value="">请选择</option>
-                                <option value="是" {if condition="$info.cn_is_glgz eq '是'"}selected{/if}>是</option>
-                                <option value="否" {if condition="$info.cn_is_glgz eq '否'"}selected{/if}>否</option>
+                                <option value="是" <?php if($info['cn_is_glgz'] == '是'): ?>selected<?php endif; ?>>是</option>
+                                <option value="否" <?php if($info['cn_is_glgz'] == '否'): ?>selected<?php endif; ?>>否</option>
                             </select>
                         </div>
                     </div>
@@ -679,7 +680,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
        $('#organization_code').val('');
        var id = data.value;    // 职位id
        $.ajax({
-       		url: '{:url("getDepartment")}',
+       		url: '<?php echo url("getDepartment"); ?>',
           data: {id:id},
        		type: "post",
        		dataType : "json",
@@ -702,7 +703,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
        $('#ptj_class_code').val('');
        var id = data.value;    // 职位id
        $.ajax({
-       		url: '{:url("getDepartment")}',
+       		url: '<?php echo url("getDepartment"); ?>',
           data: {id:id},
        		type: "post",
        		dataType : "json",

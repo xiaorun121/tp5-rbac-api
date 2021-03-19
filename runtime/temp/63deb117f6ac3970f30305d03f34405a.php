@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:90:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\index\index.html";i:1616124239;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -32,40 +33,38 @@
                             <span><img alt="image" class="img-circle" src="__ADMIN__/img/profile_small.jpg" style="border-radius: 0%;width:100%"/></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">{:session('user.nickname')}</strong></span>
+                               <span class="block m-t-xs"><strong class="font-bold"><?php echo session('user.nickname'); ?></strong></span>
                             </a>
                         </div>
                     </li>
 
 
 
-                    {volist name="menu" id="v"}
+                    <?php if(is_array($menu) || $menu instanceof \think\Collection || $menu instanceof \think\Paginator): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                         <li class="menu">
                             <a href="#">
                                 <i class="fa fa-bars"></i>
-                                <span class="nav-label">{$v.name} </span>
+                                <span class="nav-label"><?php echo $v['name']; ?> </span>
                                 <span class="fa arrow"></span>
                             </a>
-                            {volist name="v.children" id="vo"}
-                                {if $vo.child}
+                            <?php if(is_array($v['children']) || $v['children'] instanceof \think\Collection || $v['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $v['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['child']): ?>
                                     <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
                                         <li class="">
-                                            <a href="#">{$vo.name} <span class="fa arrow"></span></a>
+                                            <a href="#"><?php echo $vo['name']; ?> <span class="fa arrow"></span></a>
                                             <ul class="nav nav-third-level collapse" aria-expanded="false" style="height: 0px;">
-                                                {volist name="vo.child" id="vv"}
-                                                    <li><a class="J_menuItem" href="/{$vv.module_name}/{$vv.controller_name}/{$vv.view_name}" data-index="{$vv.id}">{$vv.name}</a></li>
-                                                {/volist}
+                                                <?php if(is_array($vo['child']) || $vo['child'] instanceof \think\Collection || $vo['child'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['child'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?>
+                                                    <li><a class="J_menuItem" href="/<?php echo $vv['module_name']; ?>/<?php echo $vv['controller_name']; ?>/<?php echo $vv['view_name']; ?>" data-index="<?php echo $vv['id']; ?>"><?php echo $vv['name']; ?></a></li>
+                                                <?php endforeach; endif; else: echo "" ;endif; ?>
                                             </ul>
                                       </li>
                                     </ul>
-                                  {else/}
+                                  <?php else: ?>
                                   <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                                      <li><a class="J_menuItem" href="/{$vo.module_name}/{$vo.controller_name}/{$vo.view_name}" data-index="{$vo.id}">{$vo.name}</a></li>
+                                      <li><a class="J_menuItem" href="/<?php echo $vo['module_name']; ?>/<?php echo $vo['controller_name']; ?>/<?php echo $vo['view_name']; ?>" data-index="<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></a></li>
                                   </ul>
-                                  {/if}
-                            {/volist}
+                                  <?php endif; endforeach; endif; else: echo "" ;endif; ?>
                         </li>
-                    {/volist}
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
 
                 </ul>
             </div>
@@ -79,7 +78,7 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li class="dropdown hidden-xs">
-                            <a class="right-sidebar-toggle J_menuItem" href="{:url('login/updpassword')}" data-index="0">
+                            <a class="right-sidebar-toggle J_menuItem" href="<?php echo url('login/updpassword'); ?>" data-index="0">
                                 <i class="fa fa-expeditedssl"></i> 修改密码
                             </a>
                         </li>
@@ -110,14 +109,14 @@
                         </li>
                     </ul>
                 </div>
-                <a href="{:url('login/logout')}" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                <a href="<?php echo url('login/logout'); ?>" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{:url('content')}" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?php echo url('content'); ?>" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">
-                    {$website.copyright}
+                    <?php echo $website['copyright']; ?>
                 </div>
             </div>
         </div>

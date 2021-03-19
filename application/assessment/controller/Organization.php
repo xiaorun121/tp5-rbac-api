@@ -21,14 +21,14 @@ class Organization extends Common{
 
                 $organizationInfo = $organization->where('name','like','%'.$name.'%')
                             ->order('code asc')
-                            ->paginate(200,false,[
+                            ->paginate(100,false,[
                             'type'     => 'bootstrap',
                             'var_page' => 'page',
                 ]);
 
             }else{
 
-                $organizationInfo = $organization->order('code asc')->paginate(200,false,[
+                $organizationInfo = $organization->order('code asc')->paginate(100,false,[
                         'type'     => 'bootstrap',
                         'var_page' => 'page',
                 ]);
@@ -308,7 +308,7 @@ class Organization extends Common{
 
         // excel头参数
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="组织信息表表('.date('Y-m-d H:i:s',time()).').xls"');  //日期为文件名后缀
+        header('Content-Disposition: attachment;filename="组织信息表('.date('Y-m-d H:i:s',time()).').xls"');  //日期为文件名后缀
         header('Cache-Control: max-age=0');
 
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');  //excel5为xls格式，excel2007为xlsx格式

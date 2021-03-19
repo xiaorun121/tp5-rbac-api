@@ -5,10 +5,14 @@ use think\Controller;
 use think\Request;
 use think\Db;
 use app\assessment\model\Menu;
+use app\assessment\model\Website;
 
 class Index extends Common{
 
 		public function index(){
+				$website = new Website();
+				$website = $website->where('id',1)->find();
+
 				$role_id   = session('user.role_id');
 
 				$menu = Db::view('Permission p','role_id,menu_id')
@@ -20,6 +24,7 @@ class Index extends Common{
 				$treeArr = get_tree_left($menu);
 
 				$this->assign('menu',$treeArr);
+				$this->assign('website',$website);
 
 				return view();
 		}

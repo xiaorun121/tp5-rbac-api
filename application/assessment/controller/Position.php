@@ -19,14 +19,14 @@ class Position extends Common{
 
             $positionInfo = $position->where('name','like','%'.$name.'%')
                         ->order('code asc')
-                        ->paginate(200,false,[
+                        ->paginate(100,false,[
                         'type'     => 'bootstrap',
                         'var_page' => 'page',
             ]);
 
         }else{
 
-            $positionInfo = $position->order('code asc')->paginate(200,false,[
+            $positionInfo = $position->order('code asc')->paginate(100,false,[
                     'type'     => 'bootstrap',
                     'var_page' => 'page',
             ]);

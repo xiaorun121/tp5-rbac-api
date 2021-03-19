@@ -1,10 +1,11 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personal\userstocompany.html";i:1615794018;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>员工信息</title>
+    <title>员工信息公司维护</title>
     <link href="__HOME__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="__HOME__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="__HOME__/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
@@ -48,32 +49,18 @@
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
 
-                                      {in name="员工信息添加" value="$viewMenu"}
+                                      <?php if(in_array((员工信息公司维护添加), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("personnelsave")}'><i class="layui-icon">&#xe608;</i> 录入</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("usersToCompanySave"); ?>'><i class="layui-icon">&#xe608;</i> 录入</a>
                                       </div>
-                                      {/in}
-                                      {in name="导入数据" value="$viewMenu"}
-                                      <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("personnelupload")}'><i class="fa fa-cloud-upload"></i> 导入</a>
-                                      </div>
-                                      {/in}
-                                      {in name="导出数据" value="$viewMenu"}
-                                      <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("personneldownload")}'><i class="fa fa-cloud-download"></i> 导出</a>
-                                      </div>
-                                      {/in}
+                                      <?php endif; ?>
                                     </div>
                                     <form action="" method="get">
                                         <div class="columns columns-right btn-group pull-right">
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
-                                        <div class="pull-right search" style="width: 90px;">
-                                          <input class="form-control input-outline" type="text" name="name" value="{if $name}{$name}{/if}" placeholder="姓名">
-                                        </div>
-
-                                        <div class="pull-right search" style="width: 90px;margin-right:3px">
-                                          <input class="form-control input-outline" type="text" name="code" value="{if $code}{$code}{/if}" placeholder="工号">
+                                        <div class="pull-right search">
+                                          <input class="form-control input-outline" type="text" name="username" value="<?php if($username): ?><?php echo $username; endif; ?>" placeholder="用户名">
                                         </div>
                                     </form>
                                   </div>
@@ -83,57 +70,40 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="序号" width="5%">序号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="工号">工号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="姓名">姓名</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="性别">性别</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="公司">公司</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="部门">部门</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="职位">职位</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="手机">手机</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="邮箱">邮箱</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="入职时间">入职时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="离职时间">离职时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="员工类型">员工类型</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="员工状态">员工状态</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="公司名称">公司名称</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="状态">状态</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="排序">排序</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="创建日期">创建日期</th>
                                                 <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
                                             </tr>
                                       </thead>
                                       <tbody>
-                                          {volist name="info" id="v"}
-                                              <tr class="gradeA odd" id="d{$v.id}" {if condition="$v.staff_status eq '离职'"}style="background: #dde0de;"{/if}>
-                                                  <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.code}</td>
-                                                  <td class=" ">{$v.name}</td>
-                                                  <td class=" ">{$v.sex}</td>
-                                                  <td class=" ">{$v.personal_to_company}</td>
-                                                  <td class=" ">{$v.organization}</td>
-                                                  <td class=" ">{$v.position}</td>
-                                                  <td class=" ">{$v.phone}</td>
-                                                  <td class=" ">{$v.email}</td>
-                                                  <td class=" ">{$v.repty_date}</td>
-                                                  <td class=" ">{$v.leave_date}</td>
-                                                  <td class=" ">{$v.staff_type}</td>
-                                                  <td class=" " {if condition="$v.staff_status eq '离职'"}style="color:red;"{/if}>{$v.staff_status}</td>
+                                          <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>">
+                                                  <td class="sorting_1"><?php echo $v['id']; ?></td>
+                                                  <td class=" "><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo $v['status']; ?></td>
+                                                  <td class=" "><?php echo $v['sort']; ?></td>
+                                                  <td class=" "><?php echo $v['create_time']; ?></td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="员工信息修改" value="$viewMenu"}
-                                                              <a type="button" class="layui-btn" href="{:url('personnelsave')}?id={$v.id}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          {/in}
-                                                          {in name="员工信息删除" value="$viewMenu"}
-                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          {/in}
+                                                          <?php if(in_array((员工信息公司维护修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <a type="button" class="layui-btn" href="<?php echo url('usersToCompanySave'); ?>?id=<?php echo $v['id']; ?>&name=<?php echo $v['name']; ?>&status=<?php echo $v['status']; ?>&sort=<?php echo $v['sort']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((员工信息公司维护删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                          <?php endif; ?>
                                                       </div>
                                                   </td>
                                               </tr>
-                                        {/volist}
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                       </tbody>
                                  </table>
                                  <div class="row">
 
                                      <div class="col-sm-6">
                                        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-                                          {$info->render()}
+                                          <?php echo $info->render(); ?>
                                        </div>
                                      </div>
                                  </div>
@@ -164,7 +134,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delPersonnel")}',
+                    url:'<?php echo url("delPersonalToCompany"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',

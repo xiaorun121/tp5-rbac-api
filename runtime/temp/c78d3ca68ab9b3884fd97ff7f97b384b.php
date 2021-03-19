@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1616118270;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,32 +49,30 @@
                                   <div class="fixed-table-toolbar">
                                     <div class="bars pull-left">
 
-                                      {in name="员工信息添加" value="$viewMenu"}
+                                      <?php if(in_array((员工信息添加), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("personnelsave")}'><i class="layui-icon">&#xe608;</i> 录入</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("personnelsave"); ?>'><i class="layui-icon">&#xe608;</i> 录入</a>
                                       </div>
-                                      {/in}
-                                      {in name="导入数据" value="$viewMenu"}
+                                      <?php endif; if(in_array((导入数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("personnelupload")}'><i class="fa fa-cloud-upload"></i> 导入</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("personnelupload"); ?>'><i class="fa fa-cloud-upload"></i> 导入</a>
                                       </div>
-                                      {/in}
-                                      {in name="导出数据" value="$viewMenu"}
+                                      <?php endif; if(in_array((导出数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='{:url("personneldownload")}'><i class="fa fa-cloud-download"></i> 导出</a>
+                                          <a class="layui-btn" id="add" href='<?php echo url("personneldownload"); ?>'><i class="fa fa-cloud-download"></i> 导出</a>
                                       </div>
-                                      {/in}
+                                      <?php endif; ?>
                                     </div>
                                     <form action="" method="get">
                                         <div class="columns columns-right btn-group pull-right">
                                               <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
                                         </div>
                                         <div class="pull-right search" style="width: 90px;">
-                                          <input class="form-control input-outline" type="text" name="name" value="{if $name}{$name}{/if}" placeholder="姓名">
+                                          <input class="form-control input-outline" type="text" name="name" value="<?php if($name): ?><?php echo $name; endif; ?>" placeholder="姓名">
                                         </div>
 
                                         <div class="pull-right search" style="width: 90px;margin-right:3px">
-                                          <input class="form-control input-outline" type="text" name="code" value="{if $code}{$code}{/if}" placeholder="工号">
+                                          <input class="form-control input-outline" type="text" name="code" value="<?php if($code): ?><?php echo $code; endif; ?>" placeholder="工号">
                                         </div>
                                     </form>
                                   </div>
@@ -99,41 +98,40 @@
                                             </tr>
                                       </thead>
                                       <tbody>
-                                          {volist name="info" id="v"}
-                                              <tr class="gradeA odd" id="d{$v.id}" {if condition="$v.staff_status eq '离职'"}style="background: #dde0de;"{/if}>
-                                                  <td class="sorting_1">{$v.id}</td>
-                                                  <td class=" ">{$v.code}</td>
-                                                  <td class=" ">{$v.name}</td>
-                                                  <td class=" ">{$v.sex}</td>
-                                                  <td class=" ">{$v.personal_to_company}</td>
-                                                  <td class=" ">{$v.organization}</td>
-                                                  <td class=" ">{$v.position}</td>
-                                                  <td class=" ">{$v.phone}</td>
-                                                  <td class=" ">{$v.email}</td>
-                                                  <td class=" ">{$v.repty_date}</td>
-                                                  <td class=" ">{$v.leave_date}</td>
-                                                  <td class=" ">{$v.staff_type}</td>
-                                                  <td class=" " {if condition="$v.staff_status eq '离职'"}style="color:red;"{/if}>{$v.staff_status}</td>
+                                          <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>" <?php if($v['staff_status'] == '离职'): ?>style="background: #dde0de;"<?php endif; ?>>
+                                                  <td class="sorting_1"><?php echo $v['id']; ?></td>
+                                                  <td class=" "><?php echo $v['code']; ?></td>
+                                                  <td class=" "><?php echo $v['name']; ?></td>
+                                                  <td class=" "><?php echo $v['sex']; ?></td>
+                                                  <td class=" "><?php echo $v['personal_to_company']; ?></td>
+                                                  <td class=" "><?php echo $v['organization']; ?></td>
+                                                  <td class=" "><?php echo $v['position']; ?></td>
+                                                  <td class=" "><?php echo $v['phone']; ?></td>
+                                                  <td class=" "><?php echo $v['email']; ?></td>
+                                                  <td class=" "><?php echo $v['repty_date']; ?></td>
+                                                  <td class=" "><?php echo $v['leave_date']; ?></td>
+                                                  <td class=" "><?php echo $v['staff_type']; ?></td>
+                                                  <td class=" " <?php if($v['staff_status'] == '离职'): ?>style="color:red;"<?php endif; ?>><?php echo $v['staff_status']; ?></td>
 
                                                   <td class="center " style="height:20px">
                                                       <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          {in name="员工信息修改" value="$viewMenu"}
-                                                              <a type="button" class="layui-btn" href="{:url('personnelsave')}?id={$v.id}" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          {/in}
-                                                          {in name="员工信息删除" value="$viewMenu"}
-                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel({$v.id});" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          {/in}
+                                                          <?php if(in_array((员工信息修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <a type="button" class="layui-btn" href="<?php echo url('personnelsave'); ?>?id=<?php echo $v['id']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                          <?php endif; if(in_array((员工信息删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                          <?php endif; ?>
                                                       </div>
                                                   </td>
                                               </tr>
-                                        {/volist}
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                       </tbody>
                                  </table>
                                  <div class="row">
 
                                      <div class="col-sm-6">
                                        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-                                          {$info->render()}
+                                          <?php echo $info->render(); ?>
                                        </div>
                                      </div>
                                  </div>
@@ -164,7 +162,7 @@
             ,yes: function(index){
                 layer.close(index);
                 $.ajax({
-                    url:'{:url("delPersonnel")}',
+                    url:'<?php echo url("delPersonnel"); ?>',
                     data:{id:id},
                     type:'POST',
                     dataType:'json',
