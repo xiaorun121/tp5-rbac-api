@@ -13,6 +13,7 @@ class Admin extends Common{
 
         if(request()->isPost()){
             $con                 = Website::get(1);
+            
             $data['name']        = input('post.name');
             $data['url']         = input('post.url');
             $data['title']       = input('post.title');
