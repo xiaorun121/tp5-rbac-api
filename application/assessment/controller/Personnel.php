@@ -546,10 +546,6 @@ class Personnel extends Common{
                 return error('请更新数据！');
             }
         }else{
-            $status = 3;
-            if(in_array($status,[0,1],true)){
-                echo 1111;
-            }
 
             $organization_id = $personnel->where('id',$id)->value('organization');
             $info = Db::name('personnels')->alias('p')->join('organization o','o.id=p.organization')->where('p.id',$id)->where('p.organization',$organization_id)->field('p.*,o.name as oname,o.parent_id,o.id as oid')->find();
