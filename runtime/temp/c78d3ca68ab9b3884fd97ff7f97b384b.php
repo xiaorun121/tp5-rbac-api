@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1616118270;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1621840021;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,106 +42,106 @@
         <div class="row row-lg">
            <div class="col-sm-12">
                         <!-- Example Events -->
-                        <div class="example-wrap">
-                            <div class="example">
+              <div class="example-wrap">
+                  <div class="example">
 
-                                <div class="bootstrap-table">
-                                  <div class="fixed-table-toolbar">
-                                    <div class="bars pull-left">
+                      <div class="bootstrap-table">
+                        <div class="fixed-table-toolbar">
+                          <div class="bars pull-left">
 
-                                      <?php if(in_array((员工信息添加), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                      <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='<?php echo url("personnelsave"); ?>'><i class="layui-icon">&#xe608;</i> 录入</a>
-                                      </div>
-                                      <?php endif; if(in_array((导入数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                      <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='<?php echo url("personnelupload"); ?>'><i class="fa fa-cloud-upload"></i> 导入</a>
-                                      </div>
-                                      <?php endif; if(in_array((导出数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                      <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                          <a class="layui-btn" id="add" href='<?php echo url("personneldownload"); ?>'><i class="fa fa-cloud-download"></i> 导出</a>
-                                      </div>
-                                      <?php endif; ?>
-                                    </div>
-                                    <form action="" method="get">
-                                        <div class="columns columns-right btn-group pull-right">
-                                              <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
-                                        </div>
-                                        <div class="pull-right search" style="width: 90px;">
-                                          <input class="form-control input-outline" type="text" name="name" value="<?php if($name): ?><?php echo $name; endif; ?>" placeholder="姓名">
-                                        </div>
-
-                                        <div class="pull-right search" style="width: 90px;margin-right:3px">
-                                          <input class="form-control input-outline" type="text" name="code" value="<?php if($code): ?><?php echo $code; endif; ?>" placeholder="工号">
-                                        </div>
-                                    </form>
-                                  </div>
-
-                                  <div id="editable_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                                    <table class="table table-striped table-bordered table-hover  dataTable" id="editable" aria-describedby="editable_info">
-                                        <thead>
-                                            <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="序号" width="5%">序号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="工号">工号</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="姓名">姓名</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="性别">性别</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="公司">公司</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="部门">部门</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="职位">职位</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="手机">手机</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="邮箱">邮箱</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="入职时间">入职时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="离职时间">离职时间</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="员工类型">员工类型</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="员工状态">员工状态</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
-                                            </tr>
-                                      </thead>
-                                      <tbody>
-                                          <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
-                                              <tr class="gradeA odd" id="d<?php echo $v['id']; ?>" <?php if($v['staff_status'] == '离职'): ?>style="background: #dde0de;"<?php endif; ?>>
-                                                  <td class="sorting_1"><?php echo $v['id']; ?></td>
-                                                  <td class=" "><?php echo $v['code']; ?></td>
-                                                  <td class=" "><?php echo $v['name']; ?></td>
-                                                  <td class=" "><?php echo $v['sex']; ?></td>
-                                                  <td class=" "><?php echo $v['personal_to_company']; ?></td>
-                                                  <td class=" "><?php echo $v['organization']; ?></td>
-                                                  <td class=" "><?php echo $v['position']; ?></td>
-                                                  <td class=" "><?php echo $v['phone']; ?></td>
-                                                  <td class=" "><?php echo $v['email']; ?></td>
-                                                  <td class=" "><?php echo $v['repty_date']; ?></td>
-                                                  <td class=" "><?php echo $v['leave_date']; ?></td>
-                                                  <td class=" "><?php echo $v['staff_type']; ?></td>
-                                                  <td class=" " <?php if($v['staff_status'] == '离职'): ?>style="color:red;"<?php endif; ?>><?php echo $v['staff_status']; ?></td>
-
-                                                  <td class="center " style="height:20px">
-                                                      <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
-                                                          <?php if(in_array((员工信息修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                                              <a type="button" class="layui-btn" href="<?php echo url('personnelsave'); ?>?id=<?php echo $v['id']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
-                                                          <?php endif; if(in_array((员工信息删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
-                                                              <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
-                                                          <?php endif; ?>
-                                                      </div>
-                                                  </td>
-                                              </tr>
-                                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                                      </tbody>
-                                 </table>
-                                 <div class="row">
-
-                                     <div class="col-sm-6">
-                                       <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-                                          <?php echo $info->render(); ?>
-                                       </div>
-                                     </div>
-                                 </div>
-                               </div>
-                          </div>
-                          <div class="clearfix"></div>
+                            <?php if(in_array((员工信息添加), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                            <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
+                                <a class="layui-btn" id="add"><i class="layui-icon">&#xe608;</i> 录入</a>
                             </div>
+                            <?php endif; if(in_array((导入数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                            <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
+                                <a class="layui-btn" href='<?php echo url("personnelupload"); ?>'><i class="fa fa-cloud-upload"></i> 导入</a>
+                            </div>
+                            <?php endif; if(in_array((导出数据), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                            <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
+                                <a class="layui-btn" href='<?php echo url("personneldownload"); ?>'><i class="fa fa-cloud-download"></i> 导出</a>
+                            </div>
+                            <?php endif; ?>
+                          </div>
+                          <form action="" method="get">
+                              <div class="columns columns-right btn-group pull-right">
+                                    <button class="btn btn-default btn-outline" type="submit" title="搜索"><i class="fa fa-search"></i></button>
+                              </div>
+                              <div class="pull-right search" style="width: 90px;">
+                                <input class="form-control input-outline" type="text" name="name" value="<?php if($name): ?><?php echo $name; endif; ?>" placeholder="姓名">
+                              </div>
+
+                              <div class="pull-right search" style="width: 90px;margin-right:3px">
+                                <input class="form-control input-outline" type="text" name="code" value="<?php if($code): ?><?php echo $code; endif; ?>" placeholder="工号">
+                              </div>
+                          </form>
                         </div>
-                        <!-- End Example Events -->
-                    </div>
+
+                        <div id="editable_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                          <table class="table table-striped table-bordered table-hover  dataTable" id="editable" aria-describedby="editable_info">
+                              <thead>
+                                  <tr role="row">
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="序号" width="5%">序号</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="工号">工号</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="姓名">姓名</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="性别">性别</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="公司">公司</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="部门">部门</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="职位">职位</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="手机">手机</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="邮箱">邮箱</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="入职时间">入职时间</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="离职时间">离职时间</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="员工类型">员工类型</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="员工状态">员工状态</th>
+                                      <th class="sorting_asc" tabindex="0" aria-controls="editable" rowspan="1" colspan="1" aria-label="操作" width="9%">操作</th>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                                <?php if(is_array($info) || $info instanceof \think\Collection || $info instanceof \think\Paginator): $i = 0; $__LIST__ = $info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <tr class="gradeA odd" id="d<?php echo $v['id']; ?>" <?php if($v['staff_status'] == '离职'): ?>style="background: #dde0de;"<?php endif; ?>>
+                                        <td class="sorting_1"><?php echo $v['id']; ?></td>
+                                        <td class=" "><?php echo $v['code']; ?></td>
+                                        <td class=" "><?php echo $v['name']; ?></td>
+                                        <td class=" "><?php echo $v['sex']; ?></td>
+                                        <td class=" "><?php echo $v['personal_to_company']; ?></td>
+                                        <td class=" "><?php echo showParentOrganization($v['organization']); ?></td>
+                                        <td class=" "><?php echo showPositionToParentName($v['position']); ?></td>
+                                        <td class=" "><?php echo $v['mobilephone']; ?></td>
+                                        <td class=" "><?php echo $v['email']; ?></td>
+                                        <td class=" "><?php echo $v['repty_date']; ?></td>
+                                        <td class=" "><?php echo $v['leave_date']; ?></td>
+                                        <td class=" "><?php echo $v['state']; ?></td>
+                                        <td class=" " <?php if($v['staff_status'] == '离职'): ?>style="color:red;"<?php endif; ?>><?php echo $v['staff_status']; ?></td>
+
+                                        <td class="center " style="height:20px">
+                                            <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
+                                                <?php if(in_array((员工信息修改), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                    <a type="button" class="layui-btn" href="<?php echo url('personnelsave'); ?>?id=<?php echo $v['id']; ?>" title="修改" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe642;</i></a>
+                                                <?php endif; if(in_array((员工信息删除), is_array($viewMenu)?$viewMenu:explode(',',$viewMenu))): ?>
+                                                    <button type="button" class="layui-btn layui-btn-danger" onclick="buttonDel(<?php echo $v['id']; ?>);" title="删除" style="height: 24px;line-height: 24px;padding: 0px 8px;"><i class="layui-icon">&#xe640;</i></button>
+                                                <?php endif; ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                              <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </tbody>
+                       </table>
+                       <div class="row">
+
+                           <div class="col-sm-6">
+                             <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
+                                <?php echo $info->render(); ?>
+                             </div>
+                           </div>
+                       </div>
+                     </div>
+                </div>
+                <div class="clearfix"></div>
+                  </div>
+              </div>
+              <!-- End Example Events -->
+          </div>
         </div>
       </div>
     </div>
@@ -153,6 +153,17 @@
 
 
 <script type="text/javascript">
+    //弹出一个iframe层
+    $('#add').on('click', function(){
+        layer.open({
+            type: 2,
+            title: '新建人员',
+            maxmin: true,
+            shadeClose: true, //点击遮罩关闭层
+            area : ['800px' , '800px'],
+            content: '<?php echo url("addPersonnel"); ?>'
+        });
+    });
 
       // 删除
       function buttonDel(id){

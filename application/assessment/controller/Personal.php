@@ -6,7 +6,9 @@ use think\Db;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Organization;
 use app\assessment\model\Personal as PersonalModel;
+use app\assessment\model\Personnel;
 use app\assessment\model\PersonnelToCompany;
+use app\assessment\model\Position;
 
 // 人事管理
 class Personal extends Common{
@@ -23,17 +25,58 @@ class Personal extends Common{
     }
 
     // 保存入职信息
-    public function saveEnpty(){
+    public function saveEnpty($id = 0){
 
-        // 公司
-        $organization = new Organization();
-        $organizationInfo = $organization->where('char_length(code) = 2')->order('code asc')->select();
-        $this->assign('organizationInfo',$organizationInfo);
+      $personnel = new Personnel();
+      $position = new Position();
+      if(request()->isPost()){
+          if($id != 0){
+              $personnel = $personnel::get($id);
+          }
+          $data = input('post.');
+          $data['user_id']  = session('user.id');
+          $data['position'] = $position->where('code',input('post.position_id'))->value('name');
 
-        // 发薪区域
-        $fxqyInfo = Db::query('select distinct name from uvclinic_city_view');
-        $this->assign('fxqyInfo',$fxqyInfo);
-        return view();
+          if($personnel->save($data) == 1){
+              return success('保存成功',url('personnelList'));
+          }else{
+              return error('请更新数据！');
+          }
+      }else{
+          // 公司
+          $personnelToCompany = new PersonnelToCompany();
+          $personnelToCompanyInfo = $personnelToCompany->where('status','=','启用')->order('sort asc')->select();
+          $this->assign('personnelToCompanyInfo',$personnelToCompanyInfo);
+
+          // 部门
+          $positionInfo = $position->where('status','=','启用')->field('id,code,name,organization_code')->select();
+          $this->assign('positionInfo',$positionInfo);
+
+          // 发薪区域
+          $fxqyInfo = Db::query('select distinct name from uvclinic_city_view');
+          $this->assign('fxqyInfo',$fxqyInfo);
+
+          // 汇报人
+          $personnelToName = $personnel->field('code,name')->order('code asc')->select();
+          $this->assign('personnelToName',$personnelToName);
+
+          $info = $personnel->where('id',$id)->find();
+          $this->assign('info',$info);
+          return view();
+      }
+    }
+
+    // 根据职位获取部门信息
+    public function getDepartment(){
+        if(request()->isPost()){
+            $id = input('post.id');
+            $info = Db::name('position')->alias('p')->join('organization o','o.code = p.organization_code')->where('p.id','=',$id)->field('p.id,p.code,p.organization_code,o.name')->find();
+            if($info){
+                echo json_encode(['code'=>200,'status'=>'success','data'=>$info]);
+            }else{
+                echo json_encode(['code'=>500,'status'=>'error']);
+            }
+        }
     }
 
     // 转正

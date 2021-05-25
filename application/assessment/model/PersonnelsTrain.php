@@ -4,7 +4,10 @@
 namespace app\assessment\model;
 
 
-class PersonnelsTrain
-{
+use think\Model;
 
+class PersonnelsTrain extends Model
+{
+    protected $autoWriteTimestamp = 'datetime';
+    protected $dateFormat = 'Y-m-d H:i:s';
 }

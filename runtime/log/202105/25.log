@@ -1,0 +1,112 @@
+[ 2021-05-25T14:24:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.105005s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.253063s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 7 LIMIT 1 [ RunTime:0.096519s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.083467s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.050476s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.026806s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) [ RunTime:0.043709s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_website` [ RunTime:0.046737s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_website` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000495s ]
+[ sql ] [ SQL ] SELECT `p`.`role_id`,`p`.`menu_id`,`m`.`id`,`m`.`name`,`m`.`module_name`,`m`.`controller_name`,`m`.`view_name`,`m`.`parent_id`,`m`.`is_menu`,`m`.`sort` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `m`.`is_menu` = 1 ORDER BY m.sort asc [ RunTime:0.029266s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_role` [ RunTime:0.044002s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 1  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) ORDER BY sort asc [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 7  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 5  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 6  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.001273s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 4  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 77  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 97  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 98  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 54  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) ORDER BY sort asc [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 55  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 71  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 72  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000384s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 109  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 81  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) ORDER BY sort asc [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 82  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.003619s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 88  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.001398s ]
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+
+---------------------------------------------------------------
+[ 2021-05-25T14:24:26+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.007693s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.002186s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 7 LIMIT 1 [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.008996s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.001587s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.001473s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) [ RunTime:0.000717s ]
+
+---------------------------------------------------------------
+[ 2021-05-25T14:43:48+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003209s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.004295s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 7 LIMIT 1 [ RunTime:0.000631s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.001357s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.001310s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.001901s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) [ RunTime:0.000929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_website` [ RunTime:0.001560s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_website` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SELECT `p`.`role_id`,`p`.`menu_id`,`m`.`id`,`m`.`name`,`m`.`module_name`,`m`.`controller_name`,`m`.`view_name`,`m`.`parent_id`,`m`.`is_menu`,`m`.`sort` FROM `uvclinic_permission` `p` INNER JOIN `uvclinic_menu` `m` ON `p`.`menu_id`=`m`.`id` WHERE  `p`.`role_id` = 1  AND `m`.`is_menu` = 1 ORDER BY m.sort asc [ RunTime:0.000876s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_role` [ RunTime:0.001338s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 1  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) ORDER BY sort asc [ RunTime:0.000626s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 7  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 5  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 6  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 4  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 77  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 97  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000404s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 98  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000839s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 54  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) ORDER BY sort asc [ RunTime:0.000610s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 55  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 71  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 72  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 109  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000365s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT `menu_id` FROM `uvclinic_permission` WHERE  `role_id` = 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 81  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) ORDER BY sort asc [ RunTime:0.000570s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 82  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000786s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `parent_id` = 88  AND `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115)  AND `is_menu` = 1 [ RunTime:0.000388s ]
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+[ error ] [8]未定义数组索引: child
+
+---------------------------------------------------------------
+[ 2021-05-25T14:43:48+08:00 ] [ sql ] [ DB ] CONNECT:[ UseTime:0.003641s ] mysql:dbname=shwap;host=localhost;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_user` [ RunTime:0.003087s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_user` WHERE  `uvclinic_user`.`delete_time` IS NULL  AND `id` = 7 LIMIT 1 [ RunTime:0.000650s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_permission` [ RunTime:0.004498s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_permission` WHERE  `uvclinic_permission`.`delete_time` IS NULL  AND `role_id` = 1 [ RunTime:0.002076s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `uvclinic_menu` [ RunTime:0.002602s ]
+[ sql ] [ SQL ] SELECT * FROM `uvclinic_menu` WHERE  `id` IN (6,43,42,41,5,7,1,44,45,46,50,4,47,48,49,98,2,9,10,11,3,12,13,54,55,56,67,68,69,70,57,58,59,71,72,76,76,77,78,79,80,81,82,86,88,89,90,91,93,94,95,96,97,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115) [ RunTime:0.000954s ]
+
+---------------------------------------------------------------

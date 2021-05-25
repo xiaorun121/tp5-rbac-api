@@ -15,13 +15,14 @@ use PHPExcel;
 class Common extends Controller
 {
 		public function _initialize(){
+
 	        // 先假设存在session
 	        if(session('user.name')==null){
 	            session(null);
 	            $this->redirect('login/index');
 	        }
 
-					//请求的URL
+	        //请求的URL
 	        $url = $this->request->baseUrl();
 
 	        //判断是否以.html结尾
@@ -29,11 +30,11 @@ class Common extends Controller
 	            $url = substr($url, 0, strrpos($url, '.html'));
 	        }
 
-					$id = session('user.id');
+	        $id = session('user.id');
 	        $permission = new Permission();
 	        $permissions = $permission->get_login_user_permissions($id);
 
-					array_push($permissions,'/assessment','/assessment/index/index','/assessment/index/content','/assessment/index/info');
+	        array_push($permissions,'/assessment','/assessment/index/index','/assessment/index/content','/assessment/index/info');
 
 	        if (!in_array($url, $permissions)) {
 	            if ($this->request->isAjax()) {
@@ -82,6 +83,31 @@ class Common extends Controller
 	            echo json_encode(['img'=>$img,'code'=>200]);
 	        }
 	    }
+
+		public function bgwscdir($path){
+			//如果是目录则继续
+			  if(is_dir($path)){
+			      //扫描一个文件夹内的所有文件夹和文件并返回数组
+			     $p = scandir($path);
+
+			     foreach($p as $val){
+			         //排除目录中的.和..
+			         if($val !="." && $val !=".."){
+			             //如果是目录则递归子目录，继续操作
+			             if(is_dir($path.$val)){
+			                 //子目录中操作删除文件夹和文件
+			                 $this->bgwscdir($path.$val.'\\');
+			                 //目录清空后删除空文件夹
+			                 @rmdir($path.$val.'\\');
+			             }else{
+			                 //如果是文件直接删除
+			                 unlink($path.$val);
+			             }
+			         }
+			     }
+			 }
+
+		}
 
 }
 ?>

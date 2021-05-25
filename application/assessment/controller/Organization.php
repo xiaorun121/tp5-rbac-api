@@ -9,7 +9,7 @@ use app\assessment\model\City;
 use think\Db;
 
 // 组织机构
-class Organization extends Common{
+class getCityOrganization extends Common{
 
     public function organizationInfo(){
         $organization = new OrganizationModel();

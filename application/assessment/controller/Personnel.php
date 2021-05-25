@@ -1,99 +1,649 @@
 <?php
 
 namespace app\assessment\controller;
+use app\assessment\model\PersonnelsProperty;
+use app\assessment\model\PersonnelsTrain;
+use app\assessment\model\PersonnelsUserinfo;
+use app\assessment\model\PersonnelsWorkinfo;
+use think\cache\driver\Memcache;
 use think\Controller;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Personnel as PersonnelModel;
+use app\assessment\model\Personnels;
 use app\assessment\model\PersonnelToCompany;
 use app\assessment\model\Position;
+use app\assessment\model\Organization;
 use think\Db;
+use think\cache\driver\Redis;
+use think\Request;
 
 // 员工管理
 class Personnel extends Common{
 
     public function personnelList(){
-        $personnel = new PersonnelModel();
+        $personnel = new Personnels();
 
-        $name = input('get.name');
-        $code = input('get.code');
 
-        if($name){
+        // 加载mencache扩展
+       /* $memcache = new Memcache();
 
-            $info = $personnel->where('name','like','%'.$name.'%')->paginate(100,false,[
-                    'type'     => 'bootstrap',
-                    'var_page' => 'page',
+        $memcache_status = $memcache->has("info");
+        if($memcache_status==false){
+            //缓存失效，重新存入
+            //查询数据
+            $Info = $personnel->paginate(100,false,[
+                'type'     => 'bootstrap',
+                'var_page' => 'page',
             ]);
-
-        }else if($code){
-
-            $info = $personnel->where('code','like','%'.$code.'%')->paginate(100,false,[
-                    'type'     => 'bootstrap',
-                    'var_page' => 'page',
-            ]);
-
-        } else if(!empty($name) && !empty($code)){
-
-            $info = $personnel->where('code','like','%'.$code.'%')->where('name','like','%'.$name.'%')->paginate(100,false,[
-                    'type'     => 'bootstrap',
-                    'var_page' => 'page',
-            ]);
-        }else{
-            $info = $personnel->paginate(100,false,[
-                    'type'     => 'bootstrap',
-                    'var_page' => 'page',
-            ]);
+            //转换成字符串，有利于存储
+            $mencacheInfo = serialize($Info);
+            //存入缓存
+            $memcache->set("info",$mencacheInfo);
         }
 
-        $this->assign('info',$info);
-        $this->assign('name',$name);
-        $this->assign('code',$code);
+        //获取缓存
+        $result = unserialize($memcache->get("info"));*/
 
-        $get = new GetViewMenuPermission();
+        //加载redis扩展
+        $redis = new Redis();
 
-        $viewMenu = $get->getViewMeun();
+        // redis 里面 可以直接执行的指令有：has() get() set() inc() dec() rm() clear() 这七个
+        //$hander = $redis->handler();    // 想使用redis其他方法，则必须使用handler方法之后才能使用其他的redis方法
+        //$hander->hset('xiaorun','height',80);
+        //echo $hander->hget('xiaorun','height');
 
-        $this->assign('viewMenu',$viewMenu);
+        //判断是否过期
+//        $redis->rm('info');exit;
+        $redis_status = $redis->has("info");
+        if($redis_status==false){
+            //缓存失效，重新存入
+            //查询数据
+            $Info = $personnel->paginate(100,false,[
+                    'type'     => 'bootstrap',
+                    'var_page' => 'page',
+            ]);
+            //转换成字符串，有利于存储
+            $redisInfo = serialize($Info);
+            //存入缓存
+            $redis->set("info",$redisInfo);
+        }
+
+
+
+         $name = input('get.name');
+         $code = input('get.code');
+         if($name){
+
+             $result = $personnel->where('name','like',$name.'%')->paginate(100,false,[
+                     'type'     => 'bootstrap',
+                     'var_page' => 'page',
+             ]);
+
+         }else if($code){
+
+             $result = $personnel->where('code','like',$code.'%')->paginate(100,false,[
+                     'type'     => 'bootstrap',
+                     'var_page' => 'page',
+             ]);
+
+         } else if(!empty($name) && !empty($code)){
+
+             $result = $personnel->where('code','like',$code.'%')->where('name','like',$name.'%')->paginate(100,false,[
+                     'type'     => 'bootstrap',
+                     'var_page' => 'page',
+             ]);
+         }else{
+             //获取缓存
+             $result = unserialize($redis->get("info"));
+         }
+
+
+         $this->assign('info',$result);
+         $this->assign('name',$name);
+         $this->assign('code',$code);
+        //
+         $get = new GetViewMenuPermission();
+
+         $viewMenu = $get->getViewMeun();
+
+         $this->assign('viewMenu',$viewMenu);
         return view();
     }
 
-
-    public function personnelSave($id = 0){
-        $personnel = new PersonnelModel();
+    // 员工信息添加
+    public function addPersonnel(){
+        $personnel = new Personnels();
+        $organization = new Organization();
         $position = new Position();
+        $personnels = new Personnels();
         if(request()->isPost()){
-            if($id != 0){
-                $personnel = $personnel::get($id);
-            }
             $data = input('post.');
-            $data['user_id']  = session('user.id');
-            $data['position'] = $position->where('code',input('post.position_id'))->value('name');
+            $data['create_user_id']  = session('user.id');
 
-            if($personnel->save($data) == 1){
+            if($personnels->save($data) == 1){
+                $redis = new Redis();
+                $redis->rm('info');
+                //查询数据
+                $Info = $personnel->paginate(100,false,[
+                    'type'     => 'bootstrap',
+                    'var_page' => 'page',
+                ]);
+                //转换成字符串，有利于存储
+                $redisInfo = serialize($Info);
+                //存入缓存
+                $redis->set("info",$redisInfo);
+
                 return success('保存成功',url('personnelList'));
             }else{
                 return error('请更新数据！');
             }
         }else{
-            // 公司
-            $personnelToCompany = new PersonnelToCompany();
-            $personnelToCompanyInfo = $personnelToCompany->where('status','=','启用')->order('sort asc')->select();
-            $this->assign('personnelToCompanyInfo',$personnelToCompanyInfo);
-
             // 部门
+            $redis = new Redis();
+            $redis_status = $redis->has("department");
+            if($redis_status==false){
+                //缓存失效，重新存入
+                //查询数据
+                $organization = $organization::all(function($query){
+                    $query->order('id asc');
+                });
 
+                $organizationArr = get_tree($organization);
+                //转换成字符串，有利于存储
+                $redisInfo = serialize($organizationArr);
+                //存入缓存
+                $redis->set("department",$redisInfo);
+            }
+
+            $organizationArr = unserialize($redis->get('department'));
+            $this->assign('organizationinfo',$organizationArr);
+
+            // 岗位
             $positionInfo = $position->where('status','=','启用')->field('id,code,name,organization_code')->select();
             $this->assign('positionInfo',$positionInfo);
 
-            // 发薪区域
-            $fxqyInfo = Db::query('select distinct name from uvclinic_city_view');
-            $this->assign('fxqyInfo',$fxqyInfo);
+            // 办公地点
+            $bgddInfo = Db::query('select distinct name from uvclinic_city_view');
+            $this->assign('bgddInfo',$bgddInfo);
+
+            // 职称
+            $zcInfo = Db::query('select * from uvclinic_position_functional');
+            $this->assign('zcInfo',$zcInfo);
 
             // 汇报人
-            $personnelToName = $personnel->field('code,name')->order('code asc')->select();
+            $personnelToName = $personnel->where('state','=','正式')->field('code,name')->order('code asc')->select();
+            $this->assign('personnelToName',$personnelToName);
+            return view();
+        }
+    }
+
+    // 用户获取部门信息
+    public function getUserDepartment(){
+        $redis = new Redis();
+        $department = unserialize($redis->get('department'));
+        foreach ($department as $key => $val){
+            $data[$key]['code'] = $val['code'];
+            $data[$key]['name'] = $val['name'];
+        }
+        echo json_encode(['status'=>'success','code'=>200,'info'=>$data]);
+    }
+
+    // 员工信息修改
+    public function personnelSave(Request $request,$id = 0){
+        $personnel = new Personnels();
+        $position = new Position();
+        $organization = new Organization();
+        $redis = new Redis();
+        $p_userinfo = new PersonnelsUserinfo();
+        $p_workinfo = new PersonnelsWorkinfo();
+        $p_property = new PersonnelsProperty();
+        $p_train    = new PersonnelsTrain();
+        if(request()->isPost()){
+            if($id != 0){
+                $personnel = $personnel::get($id);
+            }
+
+            $input = $request->except('tab_type');
+            $tab_type = $request->post('tab_type');
+            $input['update_user_id'] = session('user.id');
+
+            switch ($tab_type){
+                case '基本信息':
+                    $res = $personnel->save($input);
+                    break;
+                case '个人信息':
+                    $res_info = $personnel->save($request->except('tab_type,uid,nickname,username,workplace,job,address'));
+                    if($res_info){
+                        $result = $request->only('uid,nickname,username,workplace,job,address');
+                        if(empty($result)){
+                            $res = $res_info;
+                        }else{
+                            Db::startTrans();
+                            try {
+                                $count = count($result['username']);
+                                $data = [];
+                                for ($i=0;$i<$count;$i++){
+                                    if(!empty($result['uid'][$i])){
+                                        $data[$i]['uid']       = $result['uid'][$i];
+                                    }
+
+                                    $data[$i]['username']      = $result['username'][$i];
+                                    $data[$i]['nickname']      = $result['nickname'][$i];
+                                    $data[$i]['workplace']     = $result['workplace'][$i];
+                                    $data[$i]['job']           = $result['job'][$i];
+                                    $data[$i]['address']       = $result['address'][$i];
+                                    $data[$i]['user_id']       = session('user.id');
+                                    $data[$i]['personnels_id'] = $id;
+                                }
+                                $res_userinfo = $p_userinfo->saveAll($data);
+                                if($res_userinfo){
+                                    $res = $res_userinfo;
+                                }
+                                // 提交事务
+                                Db::commit();
+                            }catch (\Exception $e) {
+                                // 回滚事务
+                                Db::rollback($e->getMessage());
+                            }
+                        }
+                    }
+
+                    break;
+                case '工作信息':
+                    $res_workinfo = $personnel->save($request->only('cn_ygxz,cn_htksrq,cn_syqjsrq,cn_htjsrq'));
+                    if($res_workinfo){
+                        $ohters  = $request->except('cn_ygxz,cn_htksrq,cn_syqjsrq,cn_htjsrq,type,id,tab_type');
+                        if(empty($ohters)){
+                            $res = $res_workinfo;
+                        }else{
+                            $type = $request->post('type');
+                            switch ($type) {
+                                case 'one':
+                                    Db::startTrans();
+                                    try {
+                                        $result = $request->only('oneid,one_language,one_poor,one_remarks');
+                                        $count = count($result['one_language']);
+                                        $data = [];
+                                        for ($i = 0; $i < $count; $i++) {
+                                            if (!empty($result['oneid'][$i])) {
+                                                $data[$i]['wid'] = $result['oneid'][$i];
+                                            }
+                                            $data[$i]['one_language'] = $result['one_language'][$i];
+                                            $data[$i]['one_poor'] = $result['one_poor'][$i];
+                                            $data[$i]['remarks'] = $result['one_remarks'][$i];
+                                            $data[$i]['type'] = $type;
+                                            $data[$i]['user_id'] = session('user.id');
+                                            $data[$i]['personnels_id'] = $id;
+                                        }
+                                        $res_workinfo = $p_workinfo->saveAll($data, true);
+                                        if ($res_workinfo) {
+                                            $res = $res_workinfo;
+                                        }
+                                        // 提交事务
+                                        Db::commit();
+                                    } catch (\Exception $e) {
+                                        // 回滚事务
+                                        Db::rollback();
+                                        echo $e->getLine() . $e->getMessage();
+                                    }
+                                    break;
+                                case 'two':
+                                    Db::startTrans();
+                                    try {
+                                        $result = $request->only('twoid,two_shcool,two_major,tow_start_date,two_end_date,two_education,two_remarks');
+                                        $count = count($result['two_shcool']);
+                                        $data = [];
+                                        for ($i = 0; $i < $count; $i++) {
+                                            if (!empty($result['twoid'][$i])) {
+                                                $data[$i]['wid'] = $result['twoid'][$i];
+                                            }
+                                            $data[$i]['two_shcool'] = $result['two_shcool'][$i];
+                                            $data[$i]['two_major'] = $result['two_major'][$i];
+                                            $data[$i]['tow_start_date'] = $result['tow_start_date'][$i];
+                                            $data[$i]['two_end_date'] = $result['two_end_date'][$i];
+                                            $data[$i]['two_education'] = $result['two_education'][$i];
+                                            $data[$i]['remarks'] = $result['two_remarks'][$i];
+                                            $data[$i]['type'] = $type;
+                                            $data[$i]['user_id'] = session('user.id');
+                                            $data[$i]['personnels_id'] = $id;
+                                        }
+                                        $res_workinfo = $p_workinfo->saveAll($data, true);
+                                        if ($res_workinfo) {
+                                            $res = $res_workinfo;
+                                        }
+                                        // 提交事务
+                                        Db::commit();
+                                    } catch (\Exception $e) {
+                                        // 回滚事务
+                                        Db::rollback();
+                                        echo $e->getLine() . $e->getMessage();
+                                    }
+                                    break;
+                                case 'three':
+                                    Db::startTrans();
+                                    try {
+                                        $result = $request->only('threeid,three_company,three_start_date,three_end_date,three_job,three_remarks,three_leave_reason');
+                                        $count = count($result['three_company']);
+                                        $data = [];
+                                        for ($i = 0; $i < $count; $i++) {
+                                            if (!empty($result['threeid'][$i])) {
+                                                $data[$i]['wid'] = $result['threeid'][$i];
+                                            }
+                                            $data[$i]['three_company'] = $result['three_company'][$i];
+                                            $data[$i]['three_start_date'] = $result['three_start_date'][$i];
+                                            $data[$i]['three_end_date'] = $result['three_end_date'][$i];
+                                            $data[$i]['three_job'] = $result['three_job'][$i];
+                                            $data[$i]['three_leave_reason'] = $result['three_leave_reason'][$i];
+                                            $data[$i]['remarks'] = $result['three_remarks'][$i];
+                                            $data[$i]['type'] = $type;
+                                            $data[$i]['user_id'] = session('user.id');
+                                            $data[$i]['personnels_id'] = $id;
+                                        }
+                                        $res_workinfo = $p_workinfo->saveAll($data, true);
+                                        if ($res_workinfo) {
+                                            $res = $res_workinfo;
+                                        }
+                                        // 提交事务
+                                        Db::commit();
+                                    } catch (\Exception $e) {
+                                        // 回滚事务
+                                        Db::rollback();
+                                        echo $e->getLine() . $e->getMessage();
+                                    }
+                                    break;
+                                case 'four':
+                                    Db::startTrans();
+                                    try {
+                                        $result = $request->only('fourid,four_train_name,four_train_start_date,four_train_end_date,four_train_company,four_remarks');
+                                        $count = count($result['four_train_name']);
+                                        $data = [];
+                                        for ($i = 0; $i < $count; $i++) {
+                                            if (!empty($result['fourid'][$i])) {
+                                                $data[$i]['wid'] = $result['fourid'][$i];
+                                            }
+                                            $data[$i]['four_train_name'] = $result['four_train_name'][$i];
+                                            $data[$i]['four_train_start_date'] = $result['four_train_start_date'][$i];
+                                            $data[$i]['four_train_end_date'] = $result['four_train_end_date'][$i];
+                                            $data[$i]['four_train_company'] = $result['four_train_company'][$i];
+                                            $data[$i]['remarks'] = $result['four_remarks'][$i];
+                                            $data[$i]['type'] = $type;
+                                            $data[$i]['user_id'] = session('user.id');
+                                            $data[$i]['personnels_id'] = $id;
+                                        }
+                                        $res_workinfo = $p_workinfo->saveAll($data, true);
+                                        if ($res_workinfo) {
+                                            $res = $res_workinfo;
+                                        }
+                                        // 提交事务
+                                        Db::commit();
+                                    } catch (\Exception $e) {
+                                        // 回滚事务
+                                        Db::rollback();
+                                        echo $e->getLine() . $e->getMessage();
+                                    }
+                                    break;
+                                case 'five':
+                                    Db::startTrans();
+                                    try {
+                                        $result = $request->only('fiveid,five_name,five_start_date,five_end_date,five_Issuing_unit');
+                                        $count = count($result['five_name']);
+                                        $data = [];
+                                        for ($i = 0; $i < $count; $i++) {
+                                            if (!empty($result['fiveid'][$i])) {
+                                                $data[$i]['wid'] = $result['fiveid'][$i];
+                                            }
+                                            $data[$i]['five_name'] = $result['five_name'][$i];
+                                            $data[$i]['five_start_date'] = $result['five_start_date'][$i];
+                                            $data[$i]['five_end_date'] = $result['five_end_date'][$i];
+                                            $data[$i]['five_Issuing_unit'] = $result['five_Issuing_unit'][$i];
+                                            $data[$i]['type'] = $type;
+                                            $data[$i]['user_id'] = session('user.id');
+                                            $data[$i]['personnels_id'] = $id;
+                                        }
+                                        $res_workinfo = $p_workinfo->saveAll($data, true);
+                                        if ($res_workinfo) {
+                                            $res = $res_workinfo;
+                                        }
+                                        // 提交事务
+                                        Db::commit();
+                                    } catch (\Exception $e) {
+                                        // 回滚事务
+                                        Db::rollback();
+                                        echo $e->getLine() . $e->getMessage();
+                                    }
+                                    break;
+                                case 'six':
+                                    Db::startTrans();
+                                    try {
+                                        $result = $request->only('sixid,six_name,six_date,six_remarks');
+                                        $count = count($result['six_name']);
+                                        $data = [];
+                                        for ($i = 0; $i < $count; $i++) {
+                                            if (!empty($result['sixid'][$i])) {
+                                                $data[$i]['wid'] = $result['sixid'][$i];
+                                            }
+                                            $data[$i]['six_name'] = $result['six_name'][$i];
+                                            $data[$i]['six_date'] = $result['six_date'][$i];
+                                            $data[$i]['remarks'] = $result['six_remarks'][$i];
+                                            $data[$i]['type'] = $type;
+                                            $data[$i]['user_id'] = session('user.id');
+                                            $data[$i]['personnels_id'] = $id;
+                                        }
+                                        $res_workinfo = $p_workinfo->saveAll($data, true);
+                                        if ($res_workinfo) {
+                                            $res = $res_workinfo;
+                                        }
+                                        // 提交事务
+                                        Db::commit();
+                                    } catch (\Exception $e) {
+                                        // 回滚事务
+                                        Db::rollback();
+                                        echo $e->getLine() . $e->getMessage();
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+
+                    break;
+                case '系统信息':
+                    $password_confirm = $request->param('cn_password_confirm');
+                    $request = $request->only('name,cn_htksrq,cn_password,email,cn_aqjb');
+                    if($request['cn_password'] != $password_confirm){
+                        return error('确认密码不正确!');
+                    }else{
+                        $request['cn_password'] = think_encrypt($request['cn_password']);
+                        $res = $personnel->save($request);
+                    }
+                    break;
+                case '财务信息':
+                    $request = $request->only('cn_khh,cn_bank,cn_zzkh,cn_gjjzh');
+                    $res = $personnel->save($request);
+                    break;
+                case '资产信息':
+                    Db::startTrans();
+                    try {
+                        $result = $request->only('pid,name,user_department,username,separate_accounting,specification,asset_group,status,period_of_depreciation,salvage');
+                        $count = count($result['name']);
+                        $data = [];
+                        for ($i=0;$i<$count;$i++) {
+                            if (!empty($result['pid'][$i])) {
+                                $data[$i]['pid'] = $result['pid'][$i];
+                            }
+                            $data[$i]['name']                   = $result['name'][$i];
+                            $data[$i]['user_department']        = $result['user_department'][$i];
+                            $data[$i]['username']               = $result['username'][$i];
+                            $data[$i]['separate_accounting']    = $result['separate_accounting'][$i];
+                            $data[$i]['specification']          = $result['specification'][$i];
+                            $data[$i]['asset_group']            = $result['asset_group'][$i];
+                            $data[$i]['period_of_depreciation'] = $result['period_of_depreciation'][$i];
+                            $data[$i]['salvage']                = $result['salvage'][$i];
+                            $data[$i]['status']                 = $result['status'][$i];
+                            $data[$i]['user_id']                = session('user.id');
+                            $data[$i]['personnels_id']          = $id;
+                        }
+                        $res_property = $p_property->saveAll($data,true);
+                        if($res_property){
+                            $res = $res_property;
+                        }
+                        // 提交事务
+                        Db::commit();
+                    }catch (\Exception $e) {
+                        // 回滚事务
+                        Db::rollback();
+                        echo $e->getLine().$e->getMessage();
+                    }
+                    break;
+                case '培训记录':
+                    Db::startTrans();
+                    try {
+                        $result = $request->only('tid,title,start_date,end_date,assessment,evaluation');
+                        $count = count($result['title']);
+                        $data = [];
+                        for ($i=0;$i<$count;$i++) {
+                            if (!empty($result['tid'][$i])) {
+                                $data[$i]['tid'] = $result['tid'][$i];
+                            }
+                            $data[$i]['title']                  = $result['title'][$i];
+                            $data[$i]['start_date']             = $result['start_date'][$i];
+                            $data[$i]['end_date']               = $result['end_date'][$i];
+                            $data[$i]['assessment']             = $result['assessment'][$i];
+                            $data[$i]['evaluation']             = $result['evaluation'][$i];
+                            $data[$i]['user_id']                = session('user.id');
+                            $data[$i]['personnels_id']          = $id;
+                        }
+                        $res_train = $p_train->saveAll($data,true);
+                        if($res_train){
+                            $res = $res_train;
+                        }
+                        // 提交事务
+                        Db::commit();
+                    }catch (\Exception $e) {
+                        // 回滚事务
+                        Db::rollback();
+                        echo $e->getLine().$e->getMessage();
+                    }
+                    break;
+            }
+
+//            $data = input('post.');
+//            $data['update_user_id']  = session('user.id');
+//            $data['position'] = $position->where('code',input('post.position_id'))->value('name');
+
+            if($res){
+                $redis->rm('info');
+                //查询数据
+                $Info = $personnel->paginate(100,false,[
+                    'type'     => 'bootstrap',
+                    'var_page' => 'page',
+                ]);
+                //转换成字符串，有利于存储
+                $redisInfo = serialize($Info);
+                //存入缓存
+                $redis->set("info",$redisInfo);
+                return success('保存成功',url('personnelList'));
+            }else{
+                return error('请更新数据！');
+            }
+        }else{
+            $status = 3;
+            if(in_array($status,[0,1],true)){
+                echo 1111;
+            }
+
+            $organization_id = $personnel->where('id',$id)->value('organization');
+            $info = Db::name('personnels')->alias('p')->join('organization o','o.id=p.organization')->where('p.id',$id)->where('p.organization',$organization_id)->field('p.*,o.name as oname,o.parent_id,o.id as oid')->find();
+
+            $info['organization_info'] = getOrganization($info['oid'],$info['oname']);
+
+
+            $this->assign('info',$info);
+
+            // 部门
+            $redis_organization = $redis->has("organization");
+            if($redis_organization==false){
+                //缓存失效，重新存入
+                //查询数据
+                $organization = $organization::all(function($query){
+                    $query->order('id asc');
+                });
+
+                $organizationArr = get_tree($organization);
+                //转换成字符串，有利于存储
+                $redisorganizationInfo = serialize($organizationArr);
+                //存入缓存
+                $redis->set("organization",$redisorganizationInfo);
+            }
+
+            $organizationArr = unserialize($redis->get('organization'));
+
+            $this->assign('organizationinfo',$organizationArr);
+
+            // 岗位
+            $redis_position = $redis->has("position");
+            if($redis_position==false){
+                //缓存失效，重新存入
+                //查询数据
+                $positionInfo = $position->where('status','=','启用')->field('id,code,name,organization_code')->select();
+                //转换成字符串，有利于存储
+                $redisPositionInfo = serialize($positionInfo);
+                //存入缓存
+                $redis->set("position",$redisPositionInfo);
+            }
+            $positionInfo = unserialize($redis->get('position'));
+            $this->assign('positionInfo',$positionInfo);
+
+            // 部门
+            $department = unserialize($redis->get('department'));
+            $this->assign('department',$department);
+
+            // 办公地点
+            $bgddInfo = Db::query('select distinct name from uvclinic_city_view');
+            $this->assign('bgddInfo',$bgddInfo);
+
+            // 职称
+            $zcInfo = Db::query('select * from uvclinic_position_functional');
+            $this->assign('zcInfo',$zcInfo);
+
+            // 汇报人
+            $personnelToName = $personnel->where('state','=','正式')->field('code,name')->order('code asc')->select();
             $this->assign('personnelToName',$personnelToName);
 
-            $info = $personnel->where('id',$id)->find();
-            $this->assign('info',$info);
+            // 个人信息
+            $UserInfo = $p_userinfo->where('personnels_id',$id)->select();
+            $this->assign('UserInfo',$UserInfo);
+
+            // 工作信息 语言能力
+            $workinfo_one = $p_workinfo->where('type','one')->where('personnels_id',$id)->select();
+            $this->assign('workinfoOne',$workinfo_one);
+
+            // 工作信息 教育情况
+            $workinfo_two = $p_workinfo->where('type','two')->where('personnels_id',$id)->select();
+            $this->assign('workinfoTwo',$workinfo_two);
+
+            // 工作信息 入职前工作简历
+            $workinfo_three = $p_workinfo->where('type','three')->where('personnels_id',$id)->select();
+            $this->assign('workinfoThree',$workinfo_three);
+
+            // 工作信息 入职前培训
+            $workinfo_four = $p_workinfo->where('type','four')->where('personnels_id',$id)->select();
+            $this->assign('workinfoFour',$workinfo_four);
+
+            // 工作信息 资格证书
+            $workinfo_five = $p_workinfo->where('type','five')->where('personnels_id',$id)->select();
+            $this->assign('workinfoFive',$workinfo_five);
+
+            // 工作信息 资格证书
+            $workinfo_six = $p_workinfo->where('type','six')->where('personnels_id',$id)->select();
+            $this->assign('workinfoSix',$workinfo_six);
+
+            // 工作信息 资产信息
+            $property = $p_property->where('personnels_id',$id)->select();
+            $this->assign('property',$property);
+
+            // 工作信息 培训记录
+            $train = $p_train->where('personnels_id',$id)->select();
+            $this->assign('train',$train);
             return view();
         }
 
@@ -103,7 +653,7 @@ class Personnel extends Common{
     public function getDepartment(){
         if(request()->isPost()){
             $id = input('post.id');
-            $info = Db::name('position')->alias('p')->join('organization o','o.code = p.organization_code')->where('p.id','=',$id)->field('p.id,p.code,p.organization_code,o.name')->find();
+            $info = Db::name('position')->alias('p')->join('organization o','o.code = p.organization_code')->where('p.code','=',$id)->field('p.id,p.code,p.organization_code,o.name')->find();
             if($info){
                 echo json_encode(['code'=>200,'status'=>'success','data'=>$info]);
             }else{
@@ -219,7 +769,7 @@ class Personnel extends Common{
                     echo '<a class="layui-btn layui-btn-normal layui-btn-radius" onclick="javascript:history.go(-1);">返回</a>';
                 }
                 Db::execute('TRUNCATE table uvclinic_personnel');
-                $personnel = new PersonnelModel();
+                $personnel = new Personnels();
                 $personnel->insertAll($info);
             }else
             {
@@ -229,9 +779,35 @@ class Personnel extends Common{
         return view();
     }
 
+    // 移除用户信息界面不同类型下面的数据
+    public function delTypeInfo(Request $request){
+        if($request->isPost()){
+            $userinfo = new PersonnelsUserinfo();
+            $workinfo = new PersonnelsWorkinfo();
+            $param = $request->only('type,id');
+            // 启动事务
+            Db::startTrans();
+            try{
+                $firstKey = substr($param['type'],0,1);
+                $res = Db::name('personnels_'.$param['type'])->where($firstKey.'id',$param['id'])->delete();
+                // 提交事务
+                Db::commit();
+            }catch (\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+            }
+
+            if($res){
+                echo json_encode(['status'=>'success','code'=>200,'msg'=>'移除成功']);
+            }else{
+                echo json_encode(['status'=>'error','code'=>0,'msg'=>'移除失败']);
+            }
+        }
+    }
+
     // 导出数据
     public function personnelDownload(){
-        $personnel = new PersonnelModel();
+        $personnel = new Personnels();
         $list = $personnel->order('code asc')->select();
 
         vendor("PHPExcel.PHPExcel");
@@ -526,9 +1102,20 @@ class Personnel extends Common{
     public function delPersonnel(){
         $id = input('post.id');
 
-        $personnel = new PersonnelModel();
+        $personnel = new Personnels();
         $res = $personnel::destroy($id);
         if($res == 1){
+            $redis = new Redis();
+            $redis->rm('info');
+            //查询数据
+            $Info = $personnel->paginate(100,false,[
+                'type'     => 'bootstrap',
+                'var_page' => 'page',
+            ]);
+            //转换成字符串，有利于存储
+            $redisInfo = serialize($Info);
+            //存入缓存
+            $redis->set("info",$redisInfo);
             echo json_encode(['status'=>'success','code'=>200,'msg'=>'删除成功']);
         }else{
             echo json_encode(['status'=>'error','code'=>201,'msg'=>'删除失败']);
