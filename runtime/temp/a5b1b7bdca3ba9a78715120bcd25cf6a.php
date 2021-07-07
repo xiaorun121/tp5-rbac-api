@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnelsave.html";i:1621839055;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnelsave.html";i:1624846949;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,6 +164,7 @@
                                                   <option value="试用" <?php if($info['state'] == '试用'): ?>selected<?php endif; ?>>试用</option>
                                                   <option value="正式" <?php if($info['state'] == '正式'): ?>selected<?php endif; ?>>正式</option>
                                                   <option value="临时" <?php if($info['state'] == '临时'): ?>selected<?php endif; ?>>临时</option>
+                                                  <option value="兼职" <?php if($info['state'] == '兼职'): ?>selected<?php endif; ?>>兼职</option>
                                               </select>
                                           </div>
                                       </div>
@@ -198,6 +199,12 @@
                                       <label class="layui-form-label"> 爱好</label>
                                       <div class="layui-input-inline">
                                           <input type="text" name="like" value="<?php echo $info['like']; ?>" placeholder="" autocomplete="off" class="layui-input">
+                                      </div>
+                                  </div>
+                                  <div class="layui-inline">
+                                      <label class="layui-form-label"> 入职日期</label>
+                                      <div class="layui-input-inline">
+                                          <input type="text" name="repty_date" value="<?php echo $info['repty_date']; ?>" autocomplete="off" class="layui-input" id="repty_date">
                                       </div>
                                   </div>
                               </div>
@@ -330,7 +337,8 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label"> 身份证号码</label>
                                 <div class="layui-input-inline">
-                                    <input type="tel" name="IDcard" value="<?php echo $info['IDcard']; ?>" autocomplete="off" class="layui-input">
+                                    <input type="tel" name="IDcard" id="IDcard" value="<?php echo $info['IDcard']; ?>" autocomplete="off" class="layui-input" oninput="getIDCardInfo()">
+                                    <input type="hidden" name="age" value="<?php echo $info['age']; ?>" id="age"/>
                                 </div>
                             </div>
                             <div class="layui-inline">
@@ -1240,11 +1248,13 @@
     layui.use(['layedit', 'laydate'], function(){
         var laydate = layui.laydate;
 
-
-
         //日期
         laydate.render({
             elem: '#birth'
+        });
+        // 入职日期
+        laydate.render({
+            elem: '#repty_date'
         });
         // 入团
         laydate.render({

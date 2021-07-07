@@ -1,7 +1,6 @@
 <?php
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\model\Role as RoleModel;
 use app\assessment\logic\GetViewMenuPermission;
 

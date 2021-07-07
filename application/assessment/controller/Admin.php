@@ -1,7 +1,6 @@
 <?php
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\model\Role;
 use app\assessment\model\User;
 use app\assessment\model\Menu;

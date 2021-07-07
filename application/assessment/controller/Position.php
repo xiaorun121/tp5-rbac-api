@@ -2,7 +2,6 @@
 
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Organization;
 use app\assessment\model\Position as PositionModel;

@@ -1,7 +1,6 @@
 <?php
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\model\Kpi as KpiModel;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\KpiDepartmentQuota;

@@ -1,7 +1,6 @@
 <?php
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\model\Menu;
 use app\assessment\model\Role;
 use app\assessment\model\Permission as PermissionModel;

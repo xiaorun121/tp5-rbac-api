@@ -2,7 +2,6 @@
 
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\logic\GetViewMenuPermission;
 
 use app\assessment\model\Menu as MenuModel;
@@ -83,6 +82,7 @@ class Menu extends Common{
                 'parent_id'        => $parent_id,
             ];
             $this->assign('getInfo',$data);
+
             $menu = $menu::all(function($query){
                 $query->where('is_menu',1)->order('sort asc');
             });

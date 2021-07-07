@@ -1,8 +1,6 @@
 <?php
 namespace app\assessment\controller;
 
-use think\Controller;
-use think\Request;
 use think\Db;
 
 class Center extends Common{

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1621840021;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnellist.html";i:1624933015;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,8 +105,8 @@
                                         <td class=" "><?php echo $v['name']; ?></td>
                                         <td class=" "><?php echo $v['sex']; ?></td>
                                         <td class=" "><?php echo $v['personal_to_company']; ?></td>
-                                        <td class=" "><?php echo showParentOrganization($v['organization']); ?></td>
-                                        <td class=" "><?php echo showPositionToParentName($v['position']); ?></td>
+                                        <td class=" "><?php echo $v['organization_name']; ?></td>
+                                        <td class=" "><?php echo $v['position_name']; ?></td>
                                         <td class=" "><?php echo $v['mobilephone']; ?></td>
                                         <td class=" "><?php echo $v['email']; ?></td>
                                         <td class=" "><?php echo $v['repty_date']; ?></td>

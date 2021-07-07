@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:101:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\addpersonnel.html";i:1621839770;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:101:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\addpersonnel.html";i:1625550285;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +68,9 @@
                     <div class="layui-inline">
                         <label class="layui-form-label"><span style="color:red;">*</span> 身份证号码</label>
                         <div class="layui-input-inline">
-                            <input type="tel" name="IDcard" lay-verify="required|name" lay-reqtext="身份证号码是必填项，岂能为空？" autocomplete="off" class="layui-input">
+                            <input type="tel" name="IDcard" id="IDcard" lay-verify="required|name" lay-reqtext="身份证号码是必填项，岂能为空？" autocomplete="off" class="layui-input" oninput="getIDCardInfo()">
+                            <input type="hidden" name="age" id="age"/>
+                            <input type="hidden" name="birth" id="birth"/>
                         </div>
                     </div>
                     <div class="layui-inline">
@@ -88,10 +90,10 @@
                         <label class="layui-form-label"><span style="color:red;">*</span> 岗位</label>
                         <div class="layui-input-block">
                             <div class="layui-inline" style="width:190px;">
-                                <select name="position" lay-verify="required" lay-reqtext="岗位是必选项，岂能为空？" lay-search>
+                                <select name="position_id" lay-verify="required" lay-reqtext="岗位是必选项，岂能为空？" lay-search>
                                     <option value="">请选择</option>
                                     <?php if(is_array($positionInfo) || $positionInfo instanceof \think\Collection || $positionInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $positionInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
-                                        <option value="<?php echo $v['code']; ?>"><?php echo $v['code']; ?>--<?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo $v['name']; ?></option>
+                                        <option value="<?php echo $v['id']; ?>"><?php echo $v['code']; ?>--<?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo $v['name']; ?></option>
                                     <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </select>
                             </div>
@@ -124,10 +126,23 @@
                         </div>
                     </div>
                     <div class="layui-inline">
-                        <label class="layui-form-label"> 状态</label>
+                        <label class="layui-form-label"><span style="color:red;">*</span> 办公地点</label>
                         <div class="layui-input-block">
                             <div class="layui-inline" style="width:190px;">
-                                <select name="state" >
+                                <select name="bgdd" lay-search lay-verify="required" lay-reqtext="办公地点是必填项，岂能为空？">
+                                    <option value="">请选择</option>
+                                    <?php if(is_array($bgddInfo) || $bgddInfo instanceof \think\Collection || $bgddInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $bgddInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
+                                    <option value="<?php echo $v['name']; ?>" ><?php echo $v['name']; ?></option>
+                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color:red;">*</span> 状态</label>
+                        <div class="layui-input-block">
+                            <div class="layui-inline" style="width:190px;">
+                                <select name="state" lay-verify="required" lay-reqtext="状态是必填项，岂能为空？">
                                     <option value="试用">试用</option>
                                     <option value="正式">正式</option>
                                     <option value="临时">临时</option>
@@ -142,19 +157,7 @@
                             <input type="text" name="cn_syqjsrq" value="" autocomplete="off" class="layui-input" id="cn_syqjsrq">
                         </div>
                     </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label"><span style="color:red;">*</span> 办公地点</label>
-                        <div class="layui-input-block">
-                            <div class="layui-inline" style="width:190px;">
-                                <select name="bgdd" lay-search lay-verify="required" lay-reqtext="办公地点是必填项，岂能为空？">
-                                    <option value="">请选择</option>
-                                    <?php if(is_array($bgddInfo) || $bgddInfo instanceof \think\Collection || $bgddInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $bgddInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
-                                        <option value="<?php echo $v['name']; ?>" ><?php echo $v['name']; ?></option>
-                                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="layui-inline">
                         <label class="layui-form-label"> 有何专长</label>
@@ -172,6 +175,12 @@
                         <label class="layui-form-label"> 工号</label>
                         <div class="layui-input-inline">
                             <input type="text" name="jobcode" value="" placeholder="" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color:red;">*</span> 入职日期</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="repty_date" value="" autocomplete="off" class="layui-input" id="repty_date" lay-verify="required" lay-reqtext="入职日期是必选项，岂能为空？">
                         </div>
                     </div>
                 </div>
@@ -222,7 +231,7 @@
                         <label class="layui-form-label"><span style="color:red;">*</span> 直接上级</label>
                         <div class="layui-input-block">
                             <div class="layui-inline" style="width:190px;">
-                                <select name="report_name" lay-search lay-verify="required" lay-reqtext="直接上级是必选项，岂能为空？">
+                                <select name="report_name" lay-search >
                                     <option value="">请选择</option>
                                     <?php if(is_array($personnelToName) || $personnelToName instanceof \think\Collection || $personnelToName instanceof \think\Paginator): $i = 0; $__LIST__ = $personnelToName;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
                                         <option value="<?php echo $v['name']; ?>" ><?php echo $v['name']; ?></option>
@@ -283,6 +292,12 @@ layui.use(['form', 'layer', 'layedit', 'laydate'], function(){
       , trigger: 'click'
   });
 
+    // 入职日期
+    laydate.render({
+        elem:'#repty_date'
+        , trigger: 'click'
+    });
+
   /* 监听指定开关 */
     form.on('switch(component-form-switchTest)', function(data){
       layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
@@ -302,7 +317,34 @@ function ConvertName(){
     // document.getElementById('simply').value = simply;//默认大写.可通过string.toLowerCase()转成小写
 }
 
+// 获取身份信息
+function getIDCardInfo(){
+    //获取输入身份证号码
+    var IDcard = $('#IDcard').val();
+    if(IDcard != null){
 
+        //获取年龄
+        var age = "";
+        var myDate = new Date();
+        var month = myDate.getMonth() + 1;
+        var day = myDate.getDate();
+        var age = myDate.getFullYear() - IDcard.substring(6, 10) - 1;
+        if (IDcard.substring(10, 12) < month || IDcard.substring(10, 12) == month && IDcard.substring(12, 14) <= day) {
+            age++;
+        }
+        $('#age').val(age);
+
+        //获取出生日期
+        var birthday = "";
+        if(IDcard.length == 15){
+            birthday = "19"+IDcard.substr(6,6);
+        } else if(IDcard.length == 18){
+            birthday = IDcard.substr(6,4) + '-' + IDcard.substr(10,2) + '-' + IDcard.substr(12,2);
+        }
+
+        $('#birth').val(birthday);
+    }
+}
 </script>
 
 </body>

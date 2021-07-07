@@ -6,7 +6,6 @@ use app\assessment\model\PersonnelsTrain;
 use app\assessment\model\PersonnelsUserinfo;
 use app\assessment\model\PersonnelsWorkinfo;
 use think\cache\driver\Memcache;
-use think\Controller;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Personnel as PersonnelModel;
 use app\assessment\model\Personnels;
@@ -94,7 +93,11 @@ class Personnel extends Common{
              ]);
          }else{
              //获取缓存
-             $result = unserialize($redis->get("info"));
+             $result = $personnel->paginate(100,false,[
+                 'type'     => 'bootstrap',
+                 'var_page' => 'page',
+             ]);
+//             $result = unserialize($redis->get("info"));
          }
 
 
@@ -117,8 +120,23 @@ class Personnel extends Common{
         $position = new Position();
         $personnels = new Personnels();
         if(request()->isPost()){
+            $repty_date = input('post.repty_date');
+            $months=$this->getMonthNum(date('Y-m-d',time()),$repty_date);    // 工龄
+
+            // 部门
+            $organization_id = input('post.organization');
+            $organization_name = Db::name('organization')->where('id',$organization_id)->value('name');
+
+            // 岗位
+            $position_id  = input('post.position_id');
+            $positionInfo = Db::name('position')->where('id',$position_id)->field('id,code,name')->find();
+
             $data = input('post.');
-            $data['create_user_id']  = session('user.id');
+            $data['organization_name'] = $organization_name;
+            $data['position']     = $positionInfo['code'];
+            $data['position_name']     = $positionInfo['name'];
+            $data['repty_first_age']   = $months;
+            $data['create_user_id']    = session('user.id');
 
             if($personnels->save($data) == 1){
                 $redis = new Redis();
@@ -138,6 +156,8 @@ class Personnel extends Common{
                 return error('请更新数据！');
             }
         }else{
+
+
             // 部门
             $redis = new Redis();
             $redis_status = $redis->has("department");
@@ -1116,5 +1136,15 @@ class Personnel extends Common{
         }else{
             echo json_encode(['status'=>'error','code'=>201,'msg'=>'删除失败']);
         }
+    }
+
+    // 工龄
+    protected function getMonthNum($date1,$data2){
+        $data1_time = strtotime($date1);
+        $data2_time = strtotime($data2);
+
+        $Y = date('Y',$data2_time) - date('Y',$data1_time);
+        $M = date('m',$data2_time) - date('m',$data1_time);
+        return $res = abs($Y*12 + $M);
     }
 }

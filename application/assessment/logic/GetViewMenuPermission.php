@@ -19,7 +19,6 @@ class GetViewMenuPermission{
 
         $res = $menu->where('parent_id',$menu['id'])->select();
 
-
         $menu_ids = array();
         for ($i = 0;$i < count($res);$i++){
             $menu_ids[$i] = $res[$i]->id;

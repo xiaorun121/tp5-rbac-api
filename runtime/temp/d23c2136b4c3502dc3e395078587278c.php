@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:92:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\index\content.html";i:1615533948;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:92:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\index\content.html";i:1625536590;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--360浏览器优先以webkit内核解析-->
-    <title>全景医学上海中心手机站</title>
+    <title>全景医学影像</title>
     <link rel="shortcut icon" href="favicon.ico"> <link href="__ADMIN__/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="__ADMIN__/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="__ADMIN__/css/animate.min.css" rel="stylesheet">

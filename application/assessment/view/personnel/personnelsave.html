@@ -163,6 +163,7 @@
                                                   <option value="试用" {if condition="$info.state eq '试用'"}selected{/if}>试用</option>
                                                   <option value="正式" {if condition="$info.state eq '正式'"}selected{/if}>正式</option>
                                                   <option value="临时" {if condition="$info.state eq '临时'"}selected{/if}>临时</option>
+                                                  <option value="兼职" {if condition="$info.state eq '兼职'"}selected{/if}>兼职</option>
                                               </select>
                                           </div>
                                       </div>
@@ -197,6 +198,12 @@
                                       <label class="layui-form-label"> 爱好</label>
                                       <div class="layui-input-inline">
                                           <input type="text" name="like" value="{$info.like}" placeholder="" autocomplete="off" class="layui-input">
+                                      </div>
+                                  </div>
+                                  <div class="layui-inline">
+                                      <label class="layui-form-label"> 入职日期</label>
+                                      <div class="layui-input-inline">
+                                          <input type="text" name="repty_date" value="{$info.repty_date}" autocomplete="off" class="layui-input" id="repty_date">
                                       </div>
                                   </div>
                               </div>
@@ -329,7 +336,8 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label"> 身份证号码</label>
                                 <div class="layui-input-inline">
-                                    <input type="tel" name="IDcard" value="{$info.IDcard}" autocomplete="off" class="layui-input">
+                                    <input type="tel" name="IDcard" id="IDcard" value="{$info.IDcard}" autocomplete="off" class="layui-input" oninput="getIDCardInfo()">
+                                    <input type="hidden" name="age" value="{$info.age}" id="age"/>
                                 </div>
                             </div>
                             <div class="layui-inline">
@@ -1239,11 +1247,13 @@
     layui.use(['layedit', 'laydate'], function(){
         var laydate = layui.laydate;
 
-
-
         //日期
         laydate.render({
             elem: '#birth'
+        });
+        // 入职日期
+        laydate.render({
+            elem: '#repty_date'
         });
         // 入团
         laydate.render({

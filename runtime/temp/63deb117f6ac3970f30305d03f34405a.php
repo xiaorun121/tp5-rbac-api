@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:90:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\index\index.html";i:1616124239;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:90:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\index\index.html";i:1625536482;}*/ ?>
 <!DOCTYPE html>
 <html>
 
@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>全景医学</title>
-    <meta name="keywords" content="全景医学">
-    <meta name="description" content="全景医学">
+    <title><?php echo $website['title']; ?></title>
+    <meta name="keywords" content="<?php echo $website['keywords']; ?>">
+    <meta name="description" content="<?php echo $website['description']; ?>">
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->

@@ -1,7 +1,6 @@
 <?php
 
 namespace app\assessment\controller;
-use think\Controller;
 use think\Db;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Organization;

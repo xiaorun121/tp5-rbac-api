@@ -1,7 +1,6 @@
 <?php
 namespace app\assessment\controller;
 
-use think\Controller;
 use app\assessment\logic\GetViewMenuPermission;
 use app\assessment\model\Organization as OrganizationModel;
 use app\assessment\model\Province;
@@ -9,7 +8,7 @@ use app\assessment\model\City;
 use think\Db;
 
 // 组织机构
-class getCityOrganization extends Common{
+class Organization extends Common{
 
     public function organizationInfo(){
         $organization = new OrganizationModel();
