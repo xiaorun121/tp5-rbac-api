@@ -123,7 +123,7 @@
                                               <select name="position" lay-verify="required" lay-reqtext="岗位是必选项，岂能为空？" lay-search>
                                                   <option value="">请选择</option>
                                                   {volist name="positionInfo" id="v"}
-                                                      <option value="{$v.code}" {if condition="$info.position eq $v.code"}selected{/if}>{:showPositionToOrganization($v.organization_code)}--{$v.name}</option>
+                                                      <option value="{$v.id}" {if condition="$info.position_id eq $v.id"}selected{/if}>{:showPositionToOrganization($v.organization_code)}--{$v.name}</option>
                                                   {/volist}
                                               </select>
                                           </div>

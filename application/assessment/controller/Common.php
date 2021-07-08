@@ -109,5 +109,17 @@ class Common extends Controller
 
 		}
 
+		// 通过截取年、月、日来进行比较计算年龄
+		public function getAgeByIdcard($idcard){
+			$year = substr($idcard, 6, 4);
+			$monthDay = substr($idcard, 10, 4);
+
+			$age = date('Y') - $year;
+			if ($monthDay > date('md')) {
+				$age--;
+			}
+			return $age;
+		}
+
 }
 ?>

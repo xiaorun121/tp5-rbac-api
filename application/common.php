@@ -273,4 +273,6 @@ function think_decrypt($data, $key = ''){
     }
     return base64_decode($str);
 }
+
+
 ?>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnelsave.html";i:1624846949;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:102:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\personnel\personnelsave.html";i:1625709830;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,7 +124,7 @@
                                               <select name="position" lay-verify="required" lay-reqtext="岗位是必选项，岂能为空？" lay-search>
                                                   <option value="">请选择</option>
                                                   <?php if(is_array($positionInfo) || $positionInfo instanceof \think\Collection || $positionInfo instanceof \think\Paginator): $i = 0; $__LIST__ = $positionInfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?>
-                                                      <option value="<?php echo $v['code']; ?>" <?php if($info['position'] == $v['code']): ?>selected<?php endif; ?>><?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo $v['name']; ?></option>
+                                                      <option value="<?php echo $v['id']; ?>" <?php if($info['position_id'] == $v['id']): ?>selected<?php endif; ?>><?php echo showPositionToOrganization($v['organization_code']); ?>--<?php echo $v['name']; ?></option>
                                                   <?php endforeach; endif; else: echo "" ;endif; ?>
                                               </select>
                                           </div>

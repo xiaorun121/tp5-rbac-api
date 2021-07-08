@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:108:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\organization\organizationsave.html";i:1619504952;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:108:"D:\phpstudy_pro\WWW\tp5-rbac-api\tp5-rbac-api/application/assessment\view\organization\organizationsave.html";i:1625537903;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,7 +149,7 @@ layui.use(['layer', 'form'], function(){
 
     // 省级城市获取市级城市
     // form.on('select(college)', function (data) {
-    //      var province=$("select[name=province").val();
+    //      var province=$("select[name=province]").val();
     //      var htmls = '<option value="">--请选择--</option>';
     //      $.ajax({
     //      		url: '<?php echo url("getCity"); ?>',
