@@ -49,7 +49,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }
@@ -108,7 +108,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }
@@ -153,7 +153,7 @@ class Report extends Common
         $organization = $request->param('organization');
         $bgdd = $request->param('bgdd');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }
@@ -207,7 +207,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }
@@ -251,7 +251,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($bgdd)){
             $where .= ' and bgdd ="'.$bgdd.'"';
         }
@@ -300,7 +300,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($bgdd)){
             $where .= ' and bgdd ="'.$bgdd.'"';
         }
@@ -349,7 +349,7 @@ class Report extends Common
         $bgdd = $request->param('bgdd');
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }
@@ -390,7 +390,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }
@@ -434,7 +434,7 @@ class Report extends Common
         $repty_date_start = $request->param('repty_date_start');
         $repty_date_end = $request->param('repty_date_end');
         $state = $request->param('state');
-        $where = '';
+        $where = 'and delete_time is null';
         if(!empty($organization)){
             $where .= ' and organization = '.$organization;
         }

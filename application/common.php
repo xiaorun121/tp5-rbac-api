@@ -28,6 +28,28 @@ function get_tree($data, $parent_id = 0, $level = 0) {
     return $arr;
 }
 
+// 三级分类
+function get_tree_three(){
+    $catagory = Db::name('category')->select();
+    $list = []; // 用于接收遍历后的分类数据
+    foreach ($category as $cate_1) {
+        if($cate_1['pid'] == 0){
+            // 遍历所有分类的子类
+            foreach ($category as $cate_2) {
+                if($cate_2['pid'] == $cate_1['category_id']){
+                    foreach ($catagory as $cate_3) {
+                        if($cate_3['pid'] == $cate_2['category_id']){
+                            $cate_2['child'][] = $cate_3;
+                        }
+                    }
+                    $cate_1['child'][] = $cate_2;
+                }
+            }
+            $list[] = $cate_1;
+        }
+    }
+}
+
 function get_tree_left($data, $parent_id = 0) {
     static $arr = array();
     foreach ($data as $d) {

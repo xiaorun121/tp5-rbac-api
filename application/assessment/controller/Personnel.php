@@ -687,8 +687,9 @@ class Personnel extends Common{
             //获取表单上传文件
             $file = request()->file('file');
             if (empty($file)){
-                echo "<font color=red>请选择上传文件</font>";
-                echo '<a class="layui-btn layui-btn-normal layui-btn-radius" style="display: inline-block;height: 38px;line-height: 38px;padding: 0 18px;background-color: #1E9FFF;color: #fff;white-space: nowrap;text-align: center;font-size: 14px;border: none;border-radius: 2px;cursor: pointer;border-radius: 100px;" onclick="javascript:history.go(-1);">返回</a>';
+                echo json_encode(['status'=>'202','msg'=>'请选择上传文件']);
+//                echo "<font color=red>请选择上传文件</font>";
+//                echo '<a class="layui-btn layui-btn-normal layui-btn-radius" style="display: inline-block;height: 38px;line-height: 38px;padding: 0 18px;background-color: #1E9FFF;color: #fff;white-space: nowrap;text-align: center;font-size: 14px;border: none;border-radius: 2px;cursor: pointer;border-radius: 100px;" onclick="javascript:history.go(-1);">返回</a>';
                 die();
             }
             $info = $file->validate(['ext' => 'xlsx,xls'])->move(ROOT_PATH . 'public/uploads');  //上传验证后缀名,以及上传之后移动的地址  E:\wamp\www\bick\public
@@ -761,7 +762,7 @@ class Personnel extends Common{
                     $info[$k]['cn_htjsrq'] = $v[46];
                     $info[$k]['cn_khh'] = $v[47];
                     $info[$k]['cn_bank'] = $v[48];
-                    $info[$k]['cn_zzkh'] = convert_scientific_number_to_normal($v['49']);
+                    $info[$k]['cn_zzkh'] = $v['49'];
                     $info[$k]['cn_gjjzh'] = intval($v[50]);
                     $info[$k]['repty_first_age'] = $this->getMonthNum(date('Y-m-d',time()),$v[16]);
                     $info[$k]['age'] = $this->getAgeByIdcard($v[29]);
@@ -776,8 +777,11 @@ class Personnel extends Common{
                     echo "<br><font color=red>以上共".$erri."条数据导入失败</font>";
                 }
                 if($i>0){
-                    echo "<br><font color=red>成功导入".$i."条数据！！！请勿重新导</font>";
-                    echo '<a class="layui-btn layui-btn-normal layui-btn-radius" onclick="javascript:history.go(-1);">返回</a>';
+//                    echo "<br><font color=red>成功导入".$i."条数据！！！请勿重新导</font>";
+//                    echo '<a class="layui-btn layui-btn-normal layui-btn-radius" onclick="javascript:history.go(-1);">返回</a>';
+                    echo json_encode(['code'=>200,'msg'=>'成功导入'.$i.'条数据！！！请勿重新导']);
+                }else{
+                    echo json_encode(['code'=>202,'msg'=>'导入失败']);
                 }
                 Db::execute('TRUNCATE table uvclinic_personnels');
                 $personnel = new Personnels();

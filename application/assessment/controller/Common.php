@@ -79,8 +79,8 @@ class Common extends Controller
 	            $request = Request::instance();
 	            $domain = $request->domain(); //根据自己的项目路径适当修改
 
-	            $img = $domain.'/'. $filename;
-	            echo json_encode(['img'=>$img,'code'=>200]);
+				$img = $domain . '/' . $filename;
+				echo json_encode(['img' => $img, 'code' => 200]);
 	        }
 	    }
 
